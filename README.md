@@ -24,6 +24,9 @@ Quelle der Daten bilden das [Amtliche Gemeindeverzeichnis des Bundesamt für Sta
 
 Folgende Weiterentwicklungen sind geplant:
 
+- **Erweiterung des Datensatzes**  
+  Die Gebietsstammdaten werden schrittweise um weitere Attribute (wie beispielsweise Koordinaten) und Gebietstypen (wie beispielsweise Kirchgemeinden) ergänzt.
+  
 - **REST-API**  
   Bereitstellung einer Programmierschnittstelle (REST-API), über die die Gebietsstammdaten direkt in Fachapplikationen und Prozesse eingebunden werden können. 
 
@@ -32,11 +35,6 @@ Folgende Weiterentwicklungen sind geplant:
 
 - **Dokumentation und Anleitungen**  
   Erstellung praxisnaher Dokumentationen, Anwendungsbeispiele sowie Skripte, die zeigen, wie die API in spezifischen Anwendungsfällen eingesetzt werden kann.
-
-- **Erweiterung des Datensatzes**  
-  Die Gebietsstammdaten sollen schrittweise um weitere Gebietstypen und Attribute ergänzt werden, um auch komplexere Fragestellungen abbilden zu können.
-
-
 
 
 ## Kontakt
