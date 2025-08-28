@@ -19,7 +19,7 @@
 </table>
 
 
-[zu den Daten]()
+[zu den Daten](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich/distributions/6503)
 
 ---
 #### Tabelle Normdaten Bezirke Kanton Zürich
@@ -39,7 +39,7 @@
   </tbody>
 </table>
 
-[zu den Daten]()
+[zu den Daten](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich/distributions/6505)
 
 ---
 #### Tabelle Normdaten Raumplanungsregionen Kanton Zürich
@@ -59,7 +59,7 @@
   </tbody>
 </table>
 
-[zu den Daten]()
+[zu den Daten](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich/distributions/6506)
 
 ---
 #### Tabelle Gemeindezuweisungen (zu Bezirk und Raumplanungsregion) Kanton Zürich
@@ -82,7 +82,7 @@
   </tbody>
 </table>
 
-[zu den Daten]()
+[zu den Daten](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich/distributions/6563)
 
 ---
 #### Tabelle Gemeindemutationen Kanton Zürich
@@ -105,7 +105,7 @@
   </tbody>
 </table>
 
-[zu den Daten]()
+[zu den Daten](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich/distributions/6504)
 
 ---
 
