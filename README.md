@@ -5,7 +5,7 @@
 ## Einleitung
 
 Dieses Repository enthält die **Gebietsstammdaten** des Kantons Zürich. Es ist eine zentrale Referenz für konsistente, qualitätsgesicherte Gebietsangaben, die in kantonalen Prozessen verwendet werden.
-Die Gebietsstammdaten stehen im [Kantonalen Datenkatalog](tbd) zur Verfügung.
+Die Gebietsstammdaten stehen im [Kantonalen Datenkatalog](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich) zur Verfügung.
 
 
 ## Variablen
