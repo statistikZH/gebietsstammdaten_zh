@@ -14,4 +14,4 @@ Damit wird für jedes Jahr rückwärts vom aktuellen Jahr bis 1990 eine Historis
 - Für jedes frühere Jahr werden Mutationen berücksichtigt, d.h. wenn eine Mutation stattfand, wird rückwärts der alte Gemeindecode/Name übernommen.
 
 Ergebnis:
-- Eine vollständige Zeitreihe aller Gemeinden von heute bis 1990, gespeichert als [CSV-Datei](script_vorlagen/daten/gemeine_code_jahr.csv).
+- Eine vollständige Zeitreihe aller Gemeinden von heute bis 1990, gespeichert als [CSV-Datei](script_vorlagen/daten).
