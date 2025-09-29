@@ -24,6 +24,12 @@ Quelle der Daten bilden das [Amtliche Gemeindeverzeichnis des Bundesamt für Sta
 
 Folgende Weiterentwicklungen sind geplant:
 
+- **Dokumentation und Anleitungen**  
+  Erstellung praxisnaher Dokumentationen, Anwendungsbeispiele sowie Skripte, die zeigen, wie die API in spezifischen Anwendungsfällen eingesetzt werden kann.
+
+  *--> Eine erste Codevorlage in R zur Historisierung der Gemeindecodes und -namen steht in den 
+  [Script-Vorlagen](script_vorlagen) bereits zur Verfügung.*
+
 - **Erweiterung des Datensatzes**  
   Die Gebietsstammdaten werden schrittweise um weitere Attribute (wie beispielsweise Koordinaten) und Gebietstypen (wie beispielsweise Kirchgemeinden) ergänzt.
   
@@ -32,9 +38,6 @@ Folgende Weiterentwicklungen sind geplant:
 
 - **Reconcile Service für OpenRefine**  
   Ergänzend zur API ist die Entwicklung eines Reconcile-Services für [OpenRefine](https://openrefine.org/) geplant. Damit wird die komfortable Zuordnung und Bereinigung der eigenen Daten ohne Programmierkenntnisse möglich. 
-
-- **Dokumentation und Anleitungen**  
-  Erstellung praxisnaher Dokumentationen, Anwendungsbeispiele sowie Skripte, die zeigen, wie die API in spezifischen Anwendungsfällen eingesetzt werden kann.
 
 
 ## Kontakt
