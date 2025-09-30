@@ -1,0 +1,46 @@
+@prefix : <https://statistikZH.github.io/gebietsstammdaten_zh/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Gemeinde a rdfs:Class ;
+    rdfs:label "Gemeinde" .
+
+:Bezirk a rdfs:Class ;
+    rdfs:label "Bezirk" .
+
+:Raumplanungsregion a rdfs:Class ;
+    rdfs:label "Raumplanungsregion" .
+
+:gemeinde_code a rdfs:Property ;
+    rdfs:domain :Gemeinde ;
+    rdfs:range xsd:int .
+
+:gemeinde_name a rdfs:Property ;
+    rdfs:domain :Gemeinde ;
+    rdfs:range xsd:string .
+
+:bezirk_code a rdfs:Property ;
+    rdfs:domain :Bezirk ;
+    rdfs:range xsd:int .
+
+:bezirk_name a rdfs:Property ;
+    rdfs:domain :Bezirk ;
+    rdfs:range xsd:string .
+
+:raumplanungsregion_code a rdfs:Property ;
+    rdfs:domain :Raumplanungsregion ;
+    rdfs:range xsd:int .
+
+:raumplanungsregion_name a rdfs:Property ;
+    rdfs:domain :Raumplanungsregion ;
+    rdfs:range xsd:string .
+
+:gehoert_zu_bezirk a rdfs:Property ;
+    rdfs:domain :Gemeinde ;
+    rdfs:range :Bezirk ;
+    rdfs:label "gehört zu Bezirk" .
+
+:gehoert_zu_raumplanungsregion a rdfs:Property ;
+    rdfs:domain :Gemeinde;
+    rdfs:range :Raumplanungsregion ;
+    rdfs:label "gehört zu Raumplanungsregion" .
