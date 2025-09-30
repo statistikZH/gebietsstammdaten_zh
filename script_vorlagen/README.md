@@ -4,7 +4,7 @@ Hier stehen Script-Vorlagen zur Verfügung, um aus den **Gebietsstammdaten** im 
 weitere Daten zu generieren.
 
 
-### Historisierung der Gemeindecodes und -namen
+### 1. Historisierung der Gemeindecodes und -namen
 
 Das Script [Gemeinden_ZH_HIST.R](Gemeinden_ZH_HIST.R) lädt Gebietsstammdaten zu Gemeindemutationen (Namensänderungen und Fusionen)
 und den Normdaten der aktuellen Gemeinden. 
