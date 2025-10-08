@@ -2,8 +2,8 @@
 
 # Gebietsstammdaten Kanton Zürich
 
-<div align="center"><br> 
-<img src="images/gebietsstammdaten.png" alt="Übersicht Gebietsstammdaten" width="600">
+<div align="left"><br> 
+<img src="images/gebietsstammdaten.png" alt="Übersicht Gebietsstammdaten" width="400">
 <br> </div>
 
 ## Einleitung
