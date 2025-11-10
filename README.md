@@ -35,7 +35,7 @@ Folgende Weiterentwicklungen sind geplant:
   [Script-Vorlagen](script_vorlagen) bereits zur Verfügung.*
 
 - **Erweiterung des Datensatzes**  
-  Die Gebietsstammdaten werden schrittweise um weitere Attribute (wie beispielsweise Koordinaten) und Gebietstypen (wie beispielsweise Kirchgemeinden) ergänzt.
+  Die Gebietsstammdaten werden schrittweise um weitere Attribute (wie beispielsweise Koordinaten) und Gebietstypen (wie beispielsweise Schulgemeinden) ergänzt.
   
 - **REST-API**  
   Bereitstellung einer Programmierschnittstelle (REST-API), über die die Gebietsstammdaten direkt in Fachapplikationen und Prozesse eingebunden werden können. 
