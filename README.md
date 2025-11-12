@@ -40,6 +40,8 @@ Folgende Weiterentwicklungen sind geplant:
 - **REST-API**  
   Bereitstellung einer Programmierschnittstelle (REST-API), über die die Gebietsstammdaten direkt in Fachapplikationen und Prozesse eingebunden werden können. 
 
+  *--> Eine Beta-Version steht bereits zur Verfügung: [Link](https://gebietsstammdaten.statistik.zh.ch/)*
+
 - **Reconcile Service für OpenRefine**  
   Ergänzend zur API ist die Entwicklung eines Reconcile-Services für [OpenRefine](https://openrefine.org/) geplant. Damit wird die komfortable Zuordnung und Bereinigung der eigenen Daten ohne Programmierkenntnisse möglich. 
 
