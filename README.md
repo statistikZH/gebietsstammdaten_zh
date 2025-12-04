@@ -49,7 +49,7 @@ Folgende Weiterentwicklungen sind geplant:
 ## Kontakt
 Haben Sie Fragen oder Feedback? <br><br>
 [Schreiben Sie](mailto:dm@statistik.ji.zh.ch) ans [Team Data Management](https://www.zh.ch/de/direktion-der-justiz-und-des-innern/statistisches-amt/data-management.html) des Statistischen Amts des Kantons Zürich
-oder melden Sie sich direkt bei der Stammdaten-Verantwortlichen: <br><br>
+oder melden Sie sich direkt bei: <br><br>
 Rebekka Plüss <br>
 rebekka.pluess@statistik.ji.zh.ch <br>
 Telefonnummer +41 43 258 50 92<br>
