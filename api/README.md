@@ -1,4 +1,4 @@
-## API Gebietsstammdaten Beispiel-Abfragen
+## API Gebietsstammdaten Beispielabfragen
 
 ### 🩺 Health-Check  
 
@@ -11,43 +11,66 @@ curl https://gebietsstammdaten.statistik.zh.ch/api/health
 ```
 **R**
 ```r
-library(jsonlite)
+# Paket installieren
+# install.packages("httr2")
 
-data <- fromJSON("https://gebietsstammdaten.statistik.zh.ch/api/health")
-print(data)
+# Paket laden
+library("httr2")
+
+# Definieren der Basis URL
+req <- request("https://gebietsstammdaten.statistik.zh.ch/api")
+
+# API Status prüfen
+resp <- req |>
+  req_url_path_append("health") |>
+  req_perform() |>
+  resp_body_json()
+
+resp
 ```
 
 ---
 
-### 🏘️ Gemeindenamen suchen  
+### Gemeindenamen suchen  
 
-**POST** `/api/gemeinden/gemeinde_name`  
+**POST** `/api/gemeinden/gemeindename`  
 → Liefert Kandidaten für offizielle Gemeindenamen und -codes
 
 **curl**
 ```bash
-curl -X POST https://gebietsstammdaten.statistik.zh.ch/api/gemeinden/gemeinde_name \
-     -H "Content-Type: application/json" \
-     -d '{"name": "Bülac"}'
+curl -X POST \
+'https://gebietsstammdaten.statistik.zh.ch/api/gemeinden/gemeindename' \
+-H 'accept: */*' \
+--data-urlencode "name=Züri"
+
 ```
 
 **R**
 ```r
-library(jsonlite)
-library(httr)
+# Paket installieren
+# install.packages("httr2")
 
-url <- "https://gebietsstammdaten.statistik.zh.ch/api/gemeinden/gemeinde_name"
-body <- list(name = "Bülach")
+# Paket laden
+library("httr2")
 
-response <- POST(url, body = body, encode = "json")
-data <- content(response, as = "parsed", type = "application/json")
+# Definieren der Basis URL
+req <- request("https://gebietsstammdaten.statistik.zh.ch/api")
 
-print(data)
+# Gemeinde suchen
+resp <- req |>
+  req_url_path_append("gemeinden/gemeindename") |>
+  req_body_json(list(name = "Bülach")) |>
+  req_method("POST") |>
+  req_perform() |>
+  resp_body_json()
+
+resp
+
 ```
 
 ---
 
-### 🗺️ Bezirk und zugehörige Gemeinden  
+### Bezirk und zugehörige Gemeinden  
 
 **GET** `/api/bezirke/{bezirk_code}`  
 → Gibt Informationen zu einem Bezirk und seinen Gemeinden zurück  
@@ -61,13 +84,24 @@ curl https://gebietsstammdaten.statistik.zh.ch/api/bezirke/101
 
 **R**
 ```r
-library(jsonlite)
+# Paket installieren
+# install.packages("httr2")
+
+# Paket laden
+library("httr2")
+
+# Definieren der Basis URL
+req <- request("https://gebietsstammdaten.statistik.zh.ch/api")
 
 bezirk_code <- 101
-url <- paste0("https://gebietsstammdaten.statistik.zh.ch/api/bezirke/", bezirk_code)
 
-data <- fromJSON(url)
-print(data)
+resp <- req |>
+  req_url_path_append("bezirke") |>
+  req_url_path_append(bezirk_code) |>
+  req_perform() |>
+  resp_body_json()
+
+resp
 ```
 
 ---
