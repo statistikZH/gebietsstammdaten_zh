@@ -58,7 +58,7 @@ Es gibt drei Gruppen von Funktionen:
 ---
 ## Excel-Formeln
 
-[Formeln anwenden](Demo_Formeln_anwenden.mp4)
+[Demo_Formeln_anwenden.mp4](https://github.com/statistikZH/gebietsstammdaten_zh/issues/5#issue-3813199239)
 
 Die folgenden Funktionen können auch direkt in Excel-Zellen verwendet werden (als Formel, z. B. `=validate_gemeinde_name(A2)`):
 
