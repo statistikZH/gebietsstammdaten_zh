@@ -16,7 +16,7 @@ Alle Makros befinden sich unter **Add-Ins** im Dropdown **„Gemeindestammdaten 
 Es gibt drei Gruppen von Funktionen:
 
 ### 1 Daten validieren
-![Daten validieren](Demo_validieren.mp4)
+[Daten validieren](Demo_validieren.mp4)
 - **Gemeindename validieren (original Spalte behalten)**  
   Validiert die Gemeindenamen in einer neuen Spalte 
   - Grün: Name entspricht dem offiziellen BFS-Namen  
@@ -28,12 +28,12 @@ Es gibt drei Gruppen von Funktionen:
 
 ### 2 Daten anreichern
 
-![Daten anreichern](Demo_Daten_anreichern_1.mp4)
+[Demo_Daten_anreichern_1.mp4](https://github.com/statistikZH/gebietsstammdaten_zh/issues/2#issue-3813182829)
 
 - **gemeinde_code bzw. BFSNr. zu Gemeindename mappen**  
   Fügt rechts neben dem Code die offizielle Gemeinde ein.
 
-![Daten anreichern](Demo_Daten_anreichern_2.mp4)
+[Daten anreichern](Demo_Daten_anreichern_2.mp4)
 
 - **Gemeindename zu gemeinde_code mappen**  
   Ermittelt zum offiziellen Gemeindenamen des BFS den zughörigen Gemeinde-Code (BFSNr).
@@ -48,7 +48,7 @@ Es gibt drei Gruppen von Funktionen:
   Fügt Raumplanungsregion-Code und Name rechts neben dem Gemeinde-Code ein.
 
 ### 3 Daten konvertieren
-![Daten konvertieren](Demo_Daten_konvertieren.mp4)
+[Daten konvertieren](Demo_Daten_konvertieren.mp4)
 - **Ausgewählte Zellen in Werte umwandeln**  
   Wandelt alle Formeln in der markierten Auswahl in feste Werte um. Das kann vor allem aus Performance-Gründen sehr nützlich sein.  
 
@@ -58,7 +58,7 @@ Es gibt drei Gruppen von Funktionen:
 ---
 ## Excel-Formeln
 
-![Formeln anwenden](Demo_Formeln_anwenden.mp4)
+[Formeln anwenden](Demo_Formeln_anwenden.mp4)
 
 Die folgenden Funktionen können auch direkt in Excel-Zellen verwendet werden (als Formel, z. B. `=validate_gemeinde_name(A2)`):
 
