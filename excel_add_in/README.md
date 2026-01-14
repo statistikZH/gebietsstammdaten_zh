@@ -5,17 +5,18 @@ Die Funktionen verwenden die [API Gebietsstammdaten](https://gebietsstammdaten.s
 
 ---
 
-## Verwendung
+## Verwendung des Add-Ins
+
 1. Datei `Gebietsstammdaten_V1.xlsm` auf dem Computer abspeichern und öffnen.
-2a. Die zu bearbeitenden Daten in ein neues Worksheet in `Gebietsstammdaten_V1.xlsm` kopieren und da bearbeiten, oder:
-2b. `Gebietsstammdaten_V1.xlsm` und das zu bearbeitende Excel gleichzeitig offen haben.
-> Hinweis: In diesem Fall kann es beim ersten Ausführen einer Funktion notwendig sein, die Schaltfläche **zweimal** zu klicken, bis sie ausgeführt wird.
+2. - Die zu bearbeitenden Daten in ein neues Worksheet in `Gebietsstammdaten_V1.xlsm` kopieren und da bearbeiten, oder:
+   - `Gebietsstammdaten_V1.xlsm` und das zu bearbeitende Excel gleichzeitig offen haben. Hinweis: In diesem Fall kann es beim ersten Ausführen einer Funktion notwendig sein, die Schaltfläche **zweimal** zu klicken, bis sie ausgeführt wird.
 
 Alle Makros befinden sich unter **Add-Ins** im Dropdown **„Gemeindestammdaten ZH“**. 
-Dort gibt es drei Gruppen:
+
+Es gibt drei Gruppen von Funktionen:
 
 ### 1 Daten validieren
-
+![Daten validieren](Daten_validieren.jpg)
 - **Gemeindename validieren (original Spalte behalten)**  
   Validiert die Gemeindenamen in einer neuen Spalte 
   - Grün: Name entspricht dem offiziellen BFS-Namen  
@@ -26,15 +27,15 @@ Dort gibt es drei Gruppen:
   Führt die gleiche Validierung durch, überschreibt jedoch die Originalspalte (ist zur Nachvalidierung nach den vorgenommenen Korrekturen gedacht). Wenn alles grün ist, kann der gemeinde_code korrekt dem Gemeindenamen zugeordnet werden.
 
 ### 2 Daten anreichern
-
+![Daten anreichern](Daten_anreichern.jpg)
 - **gemeinde_code bzw. BFSNr. zu Gemeindename mappen**  
   Fügt rechts neben dem Code die offizielle Gemeinde ein.
 
 - **Gemeindename zu gemeinde_code mappen**  
-  Ermittelt zu einem Gemeindename den offiziellen Code.
+  Ermittelt zum offiziellen Gemeindenamen des BFS den zughörigen Gemeinde-Code (BFSNr).
 
 - **Gebietszuweisungen zu gemeinde_code mappen**  
-  Ermittelt Bezirk, Raumplanungsregion und weitere Attribute anhand des Codes.
+  Ermittelt Bezirk, Raumplanungsregion und weitere Attribute anhand des Gemeinde-Codes.
 
 - **Bezirk zu gemeinde_code mappen**  
   Fügt Bezirk-Code und Bezirk-Name rechts neben dem Gemeinde-Code ein.
@@ -43,15 +44,25 @@ Dort gibt es drei Gruppen:
   Fügt Raumplanungsregion-Code und Name rechts neben dem Gemeinde-Code ein.
 
 ### 3 Daten konvertieren
-
+![Daten konvertieren](Daten_konvertieren.jpg)
 - **Ausgewählte Zellen in Werte umwandeln**  
-  Wandelt alle Formeln in der markierten Auswahl in feste Werte um.  
-  - Achtung: Leere Zellen oder Zellen ohne Formel werden ignoriert.
+  Wandelt alle Formeln in der markierten Auswahl in feste Werte um. Das kann vor allem aus Performance-Gründen sehr nützlich sein.  
 
 - **Einfärbungen und Dropdown-Listen aus ausgewählten Zellen entfernen**  
-  Entfernt Formatierungen und Datenvalidierungen (Dropdowns) aus der Auswahl.
+  Entfernt Formatierungen zur Datenvalidierungen (Dropdowns) aus der Auswahl.
 
 ---
+## Excel-Formeln
+
+Die folgenden Funktionen können auch direkt in Excel-Zellen verwendet werden (als Formel, z. B. `=validate_gemeinde_name(A2)`):
+
+| Formel | Beschreibung |
+|--------|--------------|
+| `=validate_gemeinde_name(gemeinde_name)` | Liefert die offiziellen Gemeindennamen als Text oder als Liste (mit `;` getrennt), basierend auf dem eingegebenen Gemeindename. |
+| `=map_gemeinde_code_to_name(gemeinde_code)` | Liefert den Gemeindename zum angegebenen `gemeinde_code`. |
+| `=map_gemeindezuweisungen_to_code(gemeinde_code; attribut)` | Liefert einen bestimmten Attributwert (z. B. `gemeinde_name`, `bezirk_code`) zu einem `gemeinde_code`. |
+
+> Hinweis: Alle Formeln rufen die API auf. Stell sicher, dass eine Internetverbindung besteht.
 
 ## Tipps
 
