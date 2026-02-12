@@ -32,7 +32,6 @@ resp
 #-------------------------------------------------------------------------------
 
 # Bezirk und dazugehörende Gemeinden ausgeben
-
 bezirk_code <- 101
 
 resp <- req |>
