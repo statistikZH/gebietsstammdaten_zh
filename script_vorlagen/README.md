@@ -6,7 +6,7 @@ weitere Daten zu generieren.
 
 ### 1. Historisierung der Gemeindecodes und -namen
 
-Das Script [Gemeinden_ZH_HIST.R](Gemeinden_ZH_HIST.R) lädt Gebietsstammdaten zu Gemeindemutationen (Namensänderungen und Fusionen)
+Das R-Script [R/Gemeinden_ZH_HIST.R](Gemeinden_ZH_HIST.R) lädt Gebietsstammdaten zu Gemeindemutationen (Namensänderungen und Fusionen)
 und den Normdaten der aktuellen Gemeinden. 
 
 Damit wird für jedes Jahr rückwärts vom aktuellen Jahr bis 1990 eine Historisierung erstellt:
