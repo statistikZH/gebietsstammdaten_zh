@@ -18,7 +18,7 @@ Ergebnis:
 
 ### 2. Python-Helpers für Gebietsstammdaten ZH
 
-Im Ordner [python/gebietsstammdaten_zh](python/gebietsstammdaten_zh) stehen Python-Hilfsfunktionen zur Verfügung wie z. B. gemeinde_suchen().
+Im Ordner [python/gebietsstammdaten_zh](python/gebietsstammdaten_zh/) stehen Python-Hilfsfunktionen zur Verfügung wie z. B. gemeinde_suchen().
 Funktionen können im DryRun-Modus ausgeführt werden. Dabei wird kein API-Call durchgeführt, sondern lediglich die generierte Request-URL zurückgegeben. So lassen sich Abfragen prüfen, bevor sie produktiv ausgeführt werden.
 
 Typische Anwendungsfälle:
