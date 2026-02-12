@@ -31,7 +31,8 @@ resp
 
 #-------------------------------------------------------------------------------
 
-# Bezirk inkl. Gemeinde aufrufen
+# Bezirk und dazugehörende Gemeinden ausgeben
+
 bezirk_code <- 101
 
 resp <- req |>
@@ -41,3 +42,14 @@ resp <- req |>
   resp_body_json()
 
 resp
+
+# Ausgabe des Bezirknamens
+bezirk_name <- resp$bezirk$bezirk_name
+bezirk_name
+
+# Ausgabe Liste aller Gemeinden des Bezirks als Dataframe
+gemeinden_df <- data.frame(
+  gemeinde_code = sapply(resp$gemeinden, function(x) x$gemeinde_code),
+  gemeinde_name = sapply(resp$gemeinden, function(x) x$gemeinde_name)
+)
+gemeinden_df
