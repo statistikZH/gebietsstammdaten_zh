@@ -1,9 +1,26 @@
-"""Python helpers for the Gebietsstammdaten ZH API and historization logic.
+############################################################
+# Titel: Python-Helpers für Gebietsstammdaten ZH
+#
+# Beschreibung:
+# Dieses Modul stellt Hilfsfunktionen zur Verfügung, um die
+# Gebietsstammdaten-API des Kantons Zürich programmgesteuert
+# abzufragen und weiterzuverarbeiten.
+#
+# Es umfasst:
+# - Allgemeine HTTP-Wrapper für GET-/POST-/PUT-/PATCH-Requests
+#   mit JSON-Verarbeitung und Fehlerbehandlung
+# - Komfortfunktionen für typische API-Endpunkte
+#   (z.B. Gemeinde-Suche, Bezirke mit Gemeinden, Health-Check)
+# - CSV-Import/-Export-Funktionen für OGD-Daten
+# - Logik zur Historisierung der Gemeindedaten
 
-Ported from:
-- api/Beispielabfragen.R
-- script_vorlagen/R/Gemeinden_ZH_HIST.R
-"""
+# Portierung von:
+# - api/Beispielabfragen.R
+# - script_vorlagen/R/Gemeinden_ZH_HIST.R
+#
+# Autor: Patrick Arnecke
+# Datum: 12.02.2026
+############################################################
 
 from __future__ import annotations
 
