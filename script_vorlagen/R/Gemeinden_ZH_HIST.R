@@ -81,4 +81,4 @@ for (j in vorjahr:1990) {
 gemeinde_code_jahr <- result %>% arrange(desc(jahr), gemeinde_code)
 
 # Als CSV speichern
-write_csv(gemeinde_code_jahr, "../daten/gemeinde_code_jahr.csv")
+write_csv(gemeinde_code_jahr, "daten/gemeinde_code_jahr.csv")
