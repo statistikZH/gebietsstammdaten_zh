@@ -1,0 +1,21 @@
+# Alle Gemeinden im Kanton Zürich ohne official name, mit Labels
+SELECT ?gemeinde ?gemeindeLabel ?bezirkLabel WHERE {
+  ?gemeinde wdt:P31 wd:Q70208.      # Schweizer Gemeinde
+
+  # entweder: Gemeinde hat P131 direkt auf Kanton Zürich
+  {
+    ?gemeinde wdt:P131 wd:Q11943.   # Kanton Zürich direkt
+  }
+  UNION
+  # oder: Gemeinde hat P131 → Bezirk → P131 → Kanton Zürich
+  {
+    ?gemeinde wdt:P131 ?bezirk.
+    ?bezirk wdt:P131 wd:Q11943.
+  }
+
+  # Labels für Gemeinde und Bezirk
+  SERVICE wikibase:label { 
+    bd:serviceParam wikibase:language "de". 
+  }
+}
+ORDER BY ?gemeindeLabel
