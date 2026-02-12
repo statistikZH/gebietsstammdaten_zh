@@ -21,12 +21,13 @@ resp
 # Gemeinde suchen
 resp <- req |>
   req_url_path_append("gemeinden/gemeindename") |>
-  req_body_json(list(name = "Bülach")) |>
-  req_method("POST") |>
+  req_body_json(list(gemeindename = "Bülach")) |>
+  req_method("GET") |>
   req_perform() |>
   resp_body_json()
 
 resp
+
 
 #-------------------------------------------------------------------------------
 
