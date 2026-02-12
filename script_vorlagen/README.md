@@ -1,7 +1,7 @@
 ## Script-Vorlagen
 
 Hier stehen Script-Vorlagen zur Verfügung, um aus den **Gebietsstammdaten** im [Kantonalen Datenkatalog](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich) 
-weitere Daten zu generieren.
+weitere Daten zu generieren und zur Verwendung der [API Gebietsstammdaten](https://gebietsstammdaten.statistik.zh.ch/)
 
 
 ### 1. Historisierung der Gemeindecodes und -namen
