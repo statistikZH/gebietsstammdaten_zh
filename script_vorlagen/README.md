@@ -1,7 +1,7 @@
 ## Script-Vorlagen
 
 Hier stehen Script-Vorlagen zur Verfügung, um aus den **Gebietsstammdaten** im [Kantonalen Datenkatalog](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich) 
-weitere Daten zu generieren und zur Verwendung der [API Gebietsstammdaten](https://gebietsstammdaten.statistik.zh.ch/)
+weitere Daten zu generieren und zur Verwendung der [API Gebietsstammdaten](https://gebietsstammdaten.statistik.zh.ch/).
 
 
 ### 1. Historisierung der Gemeindecodes und -namen
@@ -19,7 +19,6 @@ Ergebnis:
 ### 2. Python-Helpers für Gebietsstammdaten ZH
 
 Im Ordner [python/gebietsstammdaten_zh](python/gebietsstammdaten_zh/) stehen Python-Hilfsfunktionen zur Verfügung wie z. B. gemeinde_suchen().
-Funktionen können im DryRun-Modus ausgeführt werden. Dabei wird kein API-Call durchgeführt, sondern lediglich die generierte Request-URL zurückgegeben. So lassen sich Abfragen prüfen, bevor sie produktiv ausgeführt werden.
 
 Typische Anwendungsfälle:
 
