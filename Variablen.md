@@ -1,5 +1,59 @@
 ## Gebietsstammdaten ZH: Variablenbeschrieb
 
+### Grundprinzipien
+
+#### Allgemein
+
+Stammdaten sind grundsätzlich als Wertetabellen mit **Code** und **Name** aufgebaut. Deshalb verwenden wir konsequent die Benennung:
+
+- `<objekt>_code`
+- `<objekt>_name`
+
+Beispiel:
+
+- `gemeinde_code`
+- `gemeinde_name`
+
+Der Code dient der eindeutigen Identifikation, der Name ist die offizielle bzw. fachlich gültige Bezeichnung.
+
+---
+
+#### Gebietstypen
+
+Jedes Gebiet gehört zu einem Gebietstyp (z. B. Gemeinde, Bezirk, Kanton).  
+Die Gebietstypen besitzen ebenfalls einen eigenen Code (`gebietstyp_code`).
+
+Hinweise:
+
+- Die Codes der Gebietstypen orientieren sich an der Systematik des Bundesamts für Statistik (BFS), insbesondere am Amtlichen Gemeindeverzeichnis (Attribut *Level*).
+- Gebietstypen können – müssen aber nicht – in einer Hierarchie zueinander stehen (z. B. Kanton – Bezirk – Gemeinde). Dies wird aktuell über die Tabelle `gemeindezuweisungen` abgebildet.
+- In der GIS-Welt werden andere Codes für Gebietstypen verwendet. Eine Mapping-Tabelle ist in Planung.
+
+---
+
+#### Eindeutigkeit
+
+Ein Gebiet ist eindeutig bestimmt durch die Kombination von:
+
+- `gebietstyp_code`
+- `gebiet_code`
+
+Damit können alle Gebiete grundsätzlich in einer gemeinsamen Tabelle geführt und flexibel ausgewertet werden. Eine entsprechende Erweiterung ist vorgesehen.
+
+---
+
+#### Unterschiedliche Variablennamen je Kontext
+
+Ziel der **Gebietsstammdaten** ist es, die Variablennamen möglichst **allgemeingültig, standardisiert und kontextunabhängig verständlich** zu halten. Deshalb verzichten wir soweit möglich auf Abkürzungen.
+
+Zu beachten ist jedoch, dass in anderen fachlichen oder technischen Kontexten teilweise andere Bezeichnungen etabliert sind.  
+Der `gemeinde_code` heisst beispielsweise in anderen Systemen:
+
+- `BFSNr`
+- `MunicipalityID`
+- `GDE_Nummer`
+
+
 ---
 #### Tabelle Normdaten Gemeinden Kanton Zürich
 
