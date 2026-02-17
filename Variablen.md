@@ -20,13 +20,20 @@ Der Code dient der eindeutigen Identifikation, der Name ist die offizielle bzw. 
 
 #### Gebietstypen
 
-Jedes Gebiet gehört zu einem Gebietstyp (z. B. Gemeinde, Bezirk, Kanton).  
-Die Gebietstypen besitzen ebenfalls einen eigenen Code (`gebietstyp_code`).
+Jedes Gebiet gehört zu einem Gebietstyp (z. B. Gemeinde, Bezirk, Kanton). Die Gebietstypen besitzen ebenfalls einen eigenen Code (`gebietstyp_code`).
+
+Die Codes der Gebietstypen orientieren sich im Moment an der Systematik des Bundesamts für Statistik (BFS), insbesondere am Amtlichen Gemeindeverzeichnis (Attribut *Level*). Im Moment sind es folgende Codes:
+
+| gebietstyp_code | gebietstyp_name     |
+|-----------------|---------------------|
+| 1               | Kanton              |
+| 2               | Bezirk              |
+| 3               | Gemeinde            |
+| 6               | Raumplanungsregion  |
 
 Hinweise:
 
-- Die Codes der Gebietstypen orientieren sich an der Systematik des Bundesamts für Statistik (BFS), insbesondere am Amtlichen Gemeindeverzeichnis (Attribut *Level*).
-- Gebietstypen können – müssen aber nicht – in einer Hierarchie zueinander stehen (z. B. Kanton – Bezirk – Gemeinde). Dies wird aktuell über die Tabelle `gemeindezuweisungen` abgebildet.
+- Gebietstypen können – müssen aber nicht – in einer Hierarchie zueinander stehen (z. B. Kanton – Bezirk – Gemeinde). Dies wird aktuell über die Tabelle [Gemeindezuweisungen](#tabelle-gemeindezuweisungen-zu-bezirk-und-raumplanungsregion-kanton-zürich) abgebildet.
 - In der GIS-Welt werden andere Codes für Gebietstypen verwendet. Eine Mapping-Tabelle ist in Planung.
 
 ---
