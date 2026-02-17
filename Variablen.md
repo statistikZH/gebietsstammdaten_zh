@@ -60,7 +60,7 @@ Zu beachten ist jedoch, dass in anderen fachlichen oder technischen Kontexten te
 - `GDE_Nummer`
 - ...
 
-
+### Detaillierter Variablenbeschrieb
 ---
 #### Tabelle Normdaten Gemeinden Kanton Zürich
 
