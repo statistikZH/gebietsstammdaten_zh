@@ -4,7 +4,7 @@
 
 #### Allgemein
 
-Stammdaten sind grundsätzlich als Wertetabellen mit **Code** und **Name** aufgebaut. Deshalb verwenden wir konsequent die Benennung:
+Stammdaten sind oft als Wertetabellen mit **Code** und **Name** aufgebaut. Deshalb verwenden wir konsequent die Benennung:
 
 - `<objekt>_code`
 - `<objekt>_name`
