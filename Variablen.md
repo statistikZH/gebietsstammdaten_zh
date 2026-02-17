@@ -22,7 +22,7 @@ Der Code dient der eindeutigen Identifikation, der Name ist die offizielle bzw. 
 
 Jedes Gebiet gehört zu einem Gebietstyp (z. B. Gemeinde, Bezirk, Kanton). Die Gebietstypen besitzen ebenfalls einen eigenen Code (`gebietstyp_code`).
 
-Die Codes der Gebietstypen orientieren sich im Moment an der Systematik des Bundesamts für Statistik (BFS), insbesondere am Amtlichen Gemeindeverzeichnis (Attribut *Level*). Im Moment sind es folgende Codes:
+Die Codes der Gebietstypen orientieren sich wo möglich an der Systematik des Bundesamts für Statistik (BFS), insbesondere am Amtlichen Gemeindeverzeichnis (Attribut *Level*). Im Moment sind es folgende Codes:
 
 | gebietstyp_code | gebietstyp_name     |
 |-----------------|---------------------|
@@ -53,12 +53,12 @@ Damit können alle Gebiete grundsätzlich in einer gemeinsamen Tabelle geführt 
 
 Ziel der **Gebietsstammdaten** ist es, die Variablennamen möglichst **allgemeingültig, standardisiert und kontextunabhängig verständlich** zu halten. Deshalb verzichten wir soweit möglich auf Abkürzungen.
 
-Zu beachten ist jedoch, dass in anderen fachlichen oder technischen Kontexten teilweise andere Bezeichnungen etabliert sind.  
-Der `gemeinde_code` heisst beispielsweise in anderen Systemen:
+Zu beachten ist jedoch, dass in anderen fachlichen oder technischen Kontexten teilweise andere Bezeichnungen etabliert sind.  Der `gemeinde_code` heisst beispielsweise in anderen Systemen:
 
 - `BFSNr`
 - `MunicipalityID`
 - `GDE_Nummer`
+- ...
 
 
 ---
