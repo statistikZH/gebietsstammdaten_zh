@@ -14,7 +14,9 @@ Beispiel:
 - `gemeinde_code`
 - `gemeinde_name`
 
-Der Code dient der eindeutigen Identifikation, der Name ist die offizielle bzw. fachlich gültige Bezeichnung.
+Der Code dient der eindeutigen Identifikation, der Name ist die offizielle bzw. fachlich gültige Bezeichnung. 
+
+Ziel ist es, die Variablennamen möglichst **allgemeingültig, standardisiert und kontextunabhängig verständlich** zu halten. Deshalb verzichten wir beispielsweise soweit möglich auf Abkürzungen.
 
 ---
 
@@ -51,9 +53,7 @@ Damit können alle Gebiete grundsätzlich in einer gemeinsamen Tabelle geführt 
 
 #### Unterschiedliche Variablennamen je Kontext
 
-Ziel der **Gebietsstammdaten** ist es, die Variablennamen möglichst **allgemeingültig, standardisiert und kontextunabhängig verständlich** zu halten. Deshalb verzichten wir soweit möglich auf Abkürzungen.
-
-Zu beachten ist jedoch, dass in anderen fachlichen oder technischen Kontexten teilweise andere Bezeichnungen etabliert sind.  Der `gemeinde_code` heisst beispielsweise in anderen Systemen:
+Es ist zu beachten, dass in anderen fachlichen oder technischen Kontexten teilweise andere Bezeichnungen etabliert sind.  Der `gemeinde_code` heisst beispielsweise in anderen Systemen:
 
 - `BFSNr`
 - `MunicipalityID`
