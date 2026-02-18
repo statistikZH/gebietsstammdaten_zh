@@ -5,13 +5,13 @@ description = "Zentrale Referenz für konsistente, qualitätsgesicherte Gebietsa
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "folium>=0.20.0",
     "ipykernel>=7.1.0",
+    "sparqlwrapper>=1.8.5",
 ]
 
 [build-system]
-requires = [
-    "hatchling",
-]
+requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
@@ -21,3 +21,5 @@ packages = ["src/gebietsstammdaten"]
 dev = [
     "jupyter>=1.1.1",
 ]
+
+
