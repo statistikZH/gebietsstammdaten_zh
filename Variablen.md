@@ -16,7 +16,7 @@ Beispiel:
 
 Der Code dient der eindeutigen Identifikation, der Name ist die offizielle bzw. fachlich gültige Bezeichnung. 
 
-Ziel ist es, die Variablennamen möglichst **allgemeingültig, standardisiert und kontextunabhängig verständlich** zu halten. Deshalb verzichten wir beispielsweise soweit möglich auf Abkürzungen.
+Ziel ist es, die Variablennamen möglichst **allgemeingültig und kontextunabhängig verständlich** zu halten. Deshalb verzichten wir beispielsweise soweit möglich auf Abkürzungen.
 
 ---
 
