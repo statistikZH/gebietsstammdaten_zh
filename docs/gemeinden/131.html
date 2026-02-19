@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Adliswil</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f6f9;
+}
+
+.header {
+    background-color: #0076bd;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+}
+
+.header img {
+    height: 60px;
+    margin-right: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.content {
+    padding: 40px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+
+.card h2 {
+    color: #0076bd;
+    margin-top: 0;
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 12px;
+}
+
+.download-btn {
+    background-color: #0076bd;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.download-btn:hover {
+    background-color: #0076bd;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <img src="../logo.svg" alt="Zürich Leu">
+    <h1>Adliswil</h1>
+</div>
+
+<div class="content">
+
+<div class="card">
+    <p><strong>Gemeinde-Code (Bfsnr):</strong> 131</p>
+    <p><strong>Bezirk:</strong> Horgen (106)</p>
+    <p><strong>Raumplanungsregion:</strong> Zimmerberg (106)</p>
+</div>
+
+<div class="card">
+    <h2>Lage</h2>
+    <iframe src="https://map.geo.admin.ch/embed.html?ch.swisstopo.swissboundaries3d-gemeinde-flaeche.fill=131"></iframe>
+</div>
+
+<div class="card">
+    <h2>Downloads</h2>
+    <a class="download-btn" href="maps/131.geojson" download>GeoJSON</a>
+</div>
+
+</div>
+        <footer>© Statistisches Amt des Kantons Zürich</footer>
+</body>
+</html>
