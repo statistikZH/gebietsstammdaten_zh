@@ -1,3 +1,5 @@
+
+
 Public Function map_gemeindezuweisungen_to_code(code As Variant, attribut As String) As String
     Dim json As String
 
