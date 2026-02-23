@@ -53,7 +53,7 @@ Die Funktionen entsprechen in ihrer Reihenfolge dem üblichen Anwendungsfall
 - **Gemeindename in der selben Spalte nachvalidieren**  
   Führt die gleiche Validierung durch, überschreibt jedoch die Originalspalte (ist zur Nachvalidierung nach den vorgenommenen Korrekturen gedacht
 
-[Demo_Gemeindenamen_validieren.mp4](https://github.com/statistikZH/gebietsstammdaten_zh/issues/1#issue-3813179519)
+🎥 **Erklärvideo**: [Demo_Gemeindenamen_validieren.mp4](https://github.com/statistikZH/gebietsstammdaten_zh/issues/1#issue-3813179519)
 
 ### 2 Gemeindedaten anreichern um Gemeindecode bwz. BFSNr.
 
@@ -74,7 +74,7 @@ Die Funktionen entsprechen in ihrer Reihenfolge dem üblichen Anwendungsfall
 - **Raumplanungsregion zu gemeinde_code mappen**  
   Fügt Raumplanungsregion-Code und Name rechts neben dem Gemeinde-Code ein.
 
-[Demo_Gemeindedaten_anreichern.mp4](https://github.com/statistikZH/gebietsstammdaten_zh/issues/3#issue-3813196220)
+🎥 **Erklärvideo**: [Demo_Gemeindedaten_anreichern.mp4](https://github.com/statistikZH/gebietsstammdaten_zh/issues/3#issue-3813196220)
 
 ### 4 Daten bereinigen
 
@@ -84,7 +84,8 @@ Die Funktionen entsprechen in ihrer Reihenfolge dem üblichen Anwendungsfall
 - **Einfärbungen und Dropdown-Listen aus ausgewählten Zellen entfernen**  
   Entfernt Formatierungen zur Datenvalidierungen (Dropdowns) aus der Auswahl.
 
-[Demo_Daten_bereinigen.mp4](https://github.com/statistikZH/gebietsstammdaten_zh/issues/4#issue-3813198100)
+🎥 **Erklärvideo**: [Demo_Daten_bereinigen.mp4](https://github.com/statistikZH/gebietsstammdaten_zh/issues/4#issue-3813198100)
+
 ---
 ## Excel-Formeln
 
@@ -104,7 +105,7 @@ Die folgenden Funktionen können auch direkt als Formeln in Excel-Zellen verwend
 
 > Hinweis: Alle Formeln rufen die API auf. Stell sicher, dass eine Internetverbindung besteht.
 
-[Demo_Formeln_anwenden.mp4](https://github.com/statistikZH/gebietsstammdaten_zh/issues/5#issue-3813199239)
+🎥 **Erklärvideo**: [Demo_Formeln_anwenden.mp4](https://github.com/statistikZH/gebietsstammdaten_zh/issues/5#issue-3813199239)
 
 ## Tipps
 
