@@ -1,0 +1,154 @@
+Private Const MENU_TAG As String = "STAMMDATEN_ZH_MENU"
+
+Private Sub Workbook_Open()
+    Application.CommandBars("Worksheet Menu Bar").Reset
+    RemoveMyMenus
+    RemoveAddInButtonsOnly
+    BuildMenus
+End Sub
+
+
+Sub RemoveMyMenus()
+
+    Dim cb As CommandBar
+    Dim ctrl As CommandBarControl
+
+    Set cb = Application.CommandBars("Worksheet Menu Bar")
+
+    For Each ctrl In cb.Controls
+        If ctrl.Tag = MENU_TAG Then
+            ctrl.Delete
+        End If
+    Next ctrl
+
+End Sub
+
+Sub BuildMenus()
+
+    Dim cb As CommandBar
+    Dim menu As CommandBarControl
+    Dim btn As CommandBarControl
+
+    Set cb = Application.CommandBars("Worksheet Menu Bar")
+
+    '--------------------------------------------------
+    ' Menü: Daten validieren
+    '--------------------------------------------------
+    Set menu = cb.Controls.Add(Type:=msoControlPopup, Temporary:=True)
+    With menu
+        .Caption = "Daten validieren"
+        .Tag = MENU_TAG
+    End With
+
+    Set btn = menu.Controls.Add(Type:=msoControlButton)
+    With btn
+        .Caption = "Gemeindename validieren (original Spalte behalten)"
+        .FaceId = 7
+        .Tag = MENU_TAG
+        .OnAction = "validate_gemeindenamen"
+    End With
+
+    Set btn = menu.Controls.Add(Type:=msoControlButton)
+    With btn
+        .Caption = "Gemeindename in derselben Spalte nachvalidieren"
+        .FaceId = 7
+        .Tag = MENU_TAG
+        .TooltipText = "Nachvalidierung in derselben Spalte"
+        .OnAction = "gemeindename_nachvalidieren"
+    End With
+
+    '--------------------------------------------------
+    ' Menü: Daten anreichern
+    '--------------------------------------------------
+    Set menu = cb.Controls.Add(Type:=msoControlPopup, Temporary:=True)
+    With menu
+        .Caption = "Daten anreichern"
+        .Tag = MENU_TAG
+    End With
+
+    Set btn = menu.Controls.Add(Type:=msoControlButton)
+    With btn
+        .Caption = "gemeinde_code bzw. BFSNr. zu Gemeindename mappen"
+        .FaceId = 41
+        .Tag = MENU_TAG
+        .OnAction = "map_gemeindecode_to_gname"
+    End With
+
+    Set btn = menu.Controls.Add(Type:=msoControlButton)
+    With btn
+        .Caption = "Gemeindename zu gemeinde_code mappen"
+        .FaceId = 41
+        .Tag = MENU_TAG
+        .OnAction = "map_gemeindename_to_gcode"
+    End With
+
+    Set btn = menu.Controls.Add(Type:=msoControlButton)
+    With btn
+        .Caption = "Bezirk zu gemeinde_code mappen"
+        .FaceId = 41
+        .Tag = MENU_TAG
+        .OnAction = "map_bezirk_to_gcode"
+    End With
+
+    Set btn = menu.Controls.Add(Type:=msoControlButton)
+    With btn
+        .Caption = "Raumplanungsregion zu gemeinde_code mappen"
+        .FaceId = 41
+        .Tag = MENU_TAG
+        .OnAction = "map_region_to_gcode"
+    End With
+
+    Set btn = menu.Controls.Add(Type:=msoControlButton)
+    With btn
+        .Caption = "Gebietszuweisungen zu gemeinde_code mappen"
+        .FaceId = 41
+        .Tag = MENU_TAG
+        .OnAction = "map_gebietszuweisungen_to_gcode"
+    End With
+    
+    '--------------------------------------------------
+    ' Menü: Daten bereinigen
+    '--------------------------------------------------
+    Set menu = cb.Controls.Add(Type:=msoControlPopup, Temporary:=True)
+    With menu
+        .Caption = "Daten bereinigen"
+        .Tag = MENU_TAG
+    End With
+
+    Set btn = menu.Controls.Add(Type:=msoControlButton)
+    With btn
+        .Caption = "Ausgewählte Zellen in Werte umwandeln"
+        .FaceId = 102
+        .Tag = MENU_TAG
+        .OnAction = "convert_formula_to_wert"
+    End With
+
+    Set btn = menu.Controls.Add(Type:=msoControlButton)
+    With btn
+        .Caption = "Einfärbungen und Dropdown-Listen aus ausgewählten Zellen entfernen"
+        .FaceId = 47
+        .Tag = MENU_TAG
+        .OnAction = "clear_format_and_validation"
+    End With
+
+End Sub
+
+Sub RemoveAddInButtonsOnly()
+
+    Dim cb As CommandBar
+    Dim ctrl As CommandBarControl
+
+    On Error Resume Next
+    Set cb = Application.CommandBars("Add-Ins")
+    On Error GoTo 0
+
+    If cb Is Nothing Then Exit Sub
+
+    For Each ctrl In cb.Controls
+        If ctrl.Type = msoControlButton Then
+            ctrl.Delete
+        End If
+    Next ctrl
+
+End Sub
+
