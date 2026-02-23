@@ -30,7 +30,7 @@ Dieses Excel Add-In unterstützt die Arbeit mit Gemeindenamen, Gemeindecodes (BF
    
    > Hinweis: In diesem Fall kann es beim ersten Ausführen einer Funktion notwendig sein, die Schaltfläche **zweimal** zu klicken, bis sie ausgeführt wird.
 
-Alle Funktionen befinden sich unter **Add-Ins** im Dropdown **„Gemeindestammdaten ZH“**. 
+Alle Funktionen befinden sich unter **Add-Ins**. 
 
 ## Funktionen
 
@@ -56,14 +56,10 @@ Die Funktionen entsprechen in ihrer Reihenfolge dem üblichen Anwendungsfall
 
 ### 2 Daten anreichern um Gemeindecode bwz. BFSNr.
 
-[Demo_Daten_anreichern_1.mp4](https://github.com/statistikZH/gebietsstammdaten_zh/issues/2#issue-3813182829)
-
 - **gemeinde_code bzw. BFSNr. zu Gemeindename mappen (Schritt 2)** 
   Fügt rechts neben dem Code die offizielle Gemeinde ein.
 
 ### 3 Daten anreichern um weitere Attribute
-
-[Demo_Daten_anreichern_2.mp4](https://github.com/statistikZH/gebietsstammdaten_zh/issues/3#issue-3813196220)
 
 - **Gemeindename zu gemeinde_code mappen**  
   Ermittelt zum offiziellen Gemeindenamen des BFS den zughörigen Gemeinde-Code (BFSNr).
@@ -77,10 +73,12 @@ Die Funktionen entsprechen in ihrer Reihenfolge dem üblichen Anwendungsfall
 - **Raumplanungsregion zu gemeinde_code mappen**  
   Fügt Raumplanungsregion-Code und Name rechts neben dem Gemeinde-Code ein.
 
-### 4 Daten konvertieren
-[Demo_Daten_konvertieren.mp4](https://github.com/statistikZH/gebietsstammdaten_zh/issues/4#issue-3813198100)
+[Demo_Daten_anreichern.mp4](https://github.com/statistikZH/gebietsstammdaten_zh/issues/3#issue-3813196220)
+
+### 4 Daten bereinigen
+[Demo_Daten_bereinigen.mp4](https://github.com/statistikZH/gebietsstammdaten_zh/issues/4#issue-3813198100)
 - **Ausgewählte Zellen in Werte umwandeln**  
-  Wandelt alle Formeln in der markierten Auswahl in feste Werte um. Das kann vor allem aus Performance-Gründen sehr nützlich sein.  
+  Wandelt alle Formeln in der markierten Auswahl in feste Werte um und entfernt Formeln. Das kann vor allem aus Performance-Gründen sehr nützlich sein. Zudem werden so die Werte auch für den Offline-Modus gesichert (Formeln greifen immer auf die API zu).
 
 - **Einfärbungen und Dropdown-Listen aus ausgewählten Zellen entfernen**  
   Entfernt Formatierungen zur Datenvalidierungen (Dropdowns) aus der Auswahl.
@@ -108,8 +106,8 @@ Die folgenden Funktionen können auch direkt als Formeln in Excel-Zellen verwend
 
 ## Tipps
 
-- Für die Arbeit in größeren Tabellen empfiehlt es sich, zuerst die Validierung durchzuführen, anschließend die Anreicherung.
-- Vor Änderungen empfiehlt es sich, die Originaldatei zu sichern.
+- Für die Arbeit in grösseren Tabellen empfiehlt es sich, zuerst die Validierung durchzuführen, anschliessend die Anreicherung.
+- Vor der Anwendung empfiehlt es sich, ein Backup der Originaldatei zu sichern.
 - Die Funktionen arbeiten am zuverlässigsten, wenn die Gemeinde-Spalte **keine leeren Zeilen** enthält.
 
 ---
