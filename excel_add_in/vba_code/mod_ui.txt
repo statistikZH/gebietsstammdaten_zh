@@ -13,7 +13,7 @@ Sub validate_gemeindenamen()
     Dim firstRow As Long, lastRow As Long
     Dim r As Long
 
-    Set ws = ActiveSheet
+    Set ws = Application.ActiveWorkbook.ActiveSheet
     wbName = GetUDFWorkbookName()
     colInput = Application.InputBox( _
         "Geben Sie die Buchstaben der Spalte mit den zu validierenden Gemeindenamen ein (z.B. A)", _
@@ -58,7 +58,7 @@ Sub gemeindename_nachvalidieren()
     Dim firstRow As Long, lastRow As Long
     Dim r As Long
 
-    Set ws = ActiveSheet
+    Set ws = Application.ActiveWorkbook.ActiveSheet
 
     colInput = Application.InputBox( _
         "Geben Sie die Buchstaben der Spalte ein, die nachvalidiert werden soll (z.B. A)", _
@@ -140,8 +140,10 @@ Sub map_gemeindecode_to_gname()
     Dim nameCol As Long
     Dim insertCol As Long
     Dim r As Long
+    Dim wbName As String
     
-    Set ws = ActiveSheet
+    Set ws = Application.ActiveWorkbook.ActiveSheet
+    wbName = GetUDFWorkbookName()
     
     ' 1?? Spalte mit Gemeinde-Name abfragen
     colInput = Application.InputBox( _
@@ -181,15 +183,13 @@ Sub map_gemeindecode_to_gname()
     For r = firstRow To lastRow
         If ws.Cells(r, nameCol).Value <> "" Then
             ws.Cells(r, insertCol).FormulaLocal = _
-                "=map_gemeinde_code_to_name(" & _
+                "= '" & wbName & "'!map_gemeinde_code_to_name(" & _
                 ws.Cells(r, nameCol).Address(False, False) & ")"
         End If
     Next r
     
     MsgBox "Gemeinde-Code bzw. BFSNr. wurde erfolgreich aus den Gemeindenamen ermittelt!", vbInformation
 End Sub
-
-
 'Gruppe: Daten anreichern
 'Beschreibung: Gemeindename zu gemeinde_code mappen
 Sub map_gemeindename_to_gcode()
@@ -199,8 +199,10 @@ Sub map_gemeindename_to_gcode()
     Dim lastRow As Long
     Dim codeCol As Long
     Dim insertCol As Long
+    Dim wbName As String
     
-    Set ws = ActiveSheet
+    Set ws = Application.ActiveWorkbook.ActiveSheet
+    wbName = GetUDFWorkbookName()
     
     ' Benutzer fragt, in welcher Spalte der Gemeinde_code steht
     colInput = Application.InputBox("Geben Sie die Buchstaben der Spalte ein, die den Gemeinde_code enthält (z.B. A)", _
@@ -238,7 +240,7 @@ Sub map_gemeindename_to_gcode()
     For r = firstRow To lastRow
         If ws.Cells(r, codeCol).Value <> "" Then
             ws.Cells(r, insertCol).FormulaLocal = _
-                "=map_gemeindezuweisungen_to_code(" & ws.Cells(r, codeCol).Address(False, False) & ";""gemeinde_name"")"
+                "= '" & wbName & "'!map_gemeindezuweisungen_to_code(" & ws.Cells(r, codeCol).Address(False, False) & ";""gemeinde_name"")"
         End If
     Next r
     
@@ -255,8 +257,10 @@ Sub map_bezirk_to_gcode()
     Dim insertCol As Long
     Dim attributes As Variant
     Dim i As Long
+    Dim wbName As String
     
-    Set ws = ActiveSheet
+    Set ws = Application.ActiveWorkbook.ActiveSheet
+    wbName = GetUDFWorkbookName()
     
     ' Spalte mit Gemeinde-Code
     colInput = Application.InputBox("Geben Sie die Buchstaben der Spalte ein, die den Gemeinde_code enthält (z.B. A)", _
@@ -300,7 +304,7 @@ Sub map_bezirk_to_gcode()
         If ws.Cells(r, codeCol).Value <> "" Then
             For i = LBound(attributes) To UBound(attributes)
                 ws.Cells(r, insertCol + i).FormulaLocal = _
-                    "=map_gemeindezuweisungen_to_code(" & ws.Cells(r, codeCol).Address(False, False) & _
+                    "= '" & wbName & "'!map_gemeindezuweisungen_to_code(" & ws.Cells(r, codeCol).Address(False, False) & _
                     ";""" & attributes(i) & """)"
             Next i
         End If
@@ -319,9 +323,10 @@ Sub map_region_to_gcode()
     Dim insertCol As Long
     Dim attributes As Variant
     Dim i As Long
+    Dim wbName As String
     
-    Set ws = ActiveSheet
-    
+    Set ws = Application.ActiveWorkbook.ActiveSheet
+    wbName = GetUDFWorkbookName()
     ' Spalte mit Gemeinde-Code
     colInput = Application.InputBox("Geben Sie die Buchstaben der Spalte ein, die den Gemeinde_code enthält (z.B. A)", _
                                    "Gemeinde_code Spalte", Type:=2)
@@ -364,7 +369,7 @@ Sub map_region_to_gcode()
         If ws.Cells(r, codeCol).Value <> "" Then
             For i = LBound(attributes) To UBound(attributes)
                 ws.Cells(r, insertCol + i).FormulaLocal = _
-                    "=map_gemeindezuweisungen_to_code(" & ws.Cells(r, codeCol).Address(False, False) & _
+                    "= '" & wbName & "'!map_gemeindezuweisungen_to_code(" & ws.Cells(r, codeCol).Address(False, False) & _
                     ";""" & attributes(i) & """)"
             Next i
         End If
@@ -383,8 +388,10 @@ Sub map_gebietszuweisungen_to_gcode()
     Dim i As Long
     Dim attributes As Variant
     Dim insertCol As Long
+    Dim wbName As String
     
-    Set ws = ActiveSheet
+    Set ws = Application.ActiveWorkbook.ActiveSheet
+    wbName = GetUDFWorkbookName()
     
     colInput = Application.InputBox("Geben Sie die Buchstaben der Spalte ein, die den gemeinde_code bzw. die BFSNr. enthält (z.B. A)", _
                                    "gemeinde_code Spalte", Type:=2)
@@ -434,7 +441,7 @@ Sub map_gebietszuweisungen_to_gcode()
         If ws.Cells(r, codeCol).Value <> "" Then
             For i = LBound(attributes) To UBound(attributes)
                 ws.Cells(r, insertCol + i).FormulaLocal = _
-                    "=map_gemeindezuweisungen_to_code(" & ws.Cells(r, codeCol).Address(False, False) & _
+                    "= '" & wbName & "'!map_gemeindezuweisungen_to_code(" & ws.Cells(r, codeCol).Address(False, False) & _
                     ";""" & attributes(i) & """)"
             Next i
         End If
@@ -442,7 +449,7 @@ Sub map_gebietszuweisungen_to_gcode()
     
     MsgBox "Die Spalten für Gemeindedaten wurden erfolgreich eingefügt!", vbInformation
 End Sub
-'Gruppe: Daten konvertieren
+'Gruppe: Daten bereinigen
 'Beschreibung: Ausgewählte Zellen in Werte umwandeln
 Sub convert_formula_to_wert()
     Dim rng As Range
