@@ -16,7 +16,7 @@
 
 Dieses Excel Add-In unterstützt die Arbeit mit Gemeindenamen, Gemeindecodes (BFSNr.) und Gebietszuweisungen für den Kanton Zürich. Es bietet Funktionen zur **Validierung** und **Anreicherung** von Gemeindedaten direkt in Excel. Die Funktionen verwenden die [API Gebietsstammdaten](https://gebietsstammdaten.statistik.zh.ch/) des Statistischen Amts des Kantons Zürich.
 <p align="center">
-  <img src="Daten_anreichern.jpg" alt="Daten anreichern" width="500">
+  <img src="Daten_anreichern.jpg" alt="Daten anreichern" width="600">
 </p>
 
 
