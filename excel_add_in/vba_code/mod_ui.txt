@@ -1,0 +1,512 @@
+' === Hilfsfunktion: Name der UDF-Arbeitsmappe holen ===
+Private Function GetUDFWorkbookName() As String
+    GetUDFWorkbookName = ThisWorkbook.Name ' Name der Mappe, in der die UDFs liegen
+End Function
+
+'Gruppe: Daten validieren
+'Beschreibung: Validiere Gemeindename
+Sub validate_gemeindenamen()
+
+    Dim ws As Worksheet
+    Dim colInput As Variant
+    Dim nameCol As Long, resultCol As Long
+    Dim firstRow As Long, lastRow As Long
+    Dim r As Long
+
+    Set ws = ActiveSheet
+    wbName = GetUDFWorkbookName()
+    colInput = Application.InputBox( _
+        "Geben Sie die Buchstaben der Spalte mit den zu validierenden Gemeindenamen ein (z.B. A)", _
+        "Gemeindename (original)", Type:=2)
+    If colInput = False Then Exit Sub
+
+    nameCol = Columns(colInput).Column
+    resultCol = nameCol + 1
+
+    If MsgBox("Hat die Tabelle eine Titelzeile?", vbYesNo + vbQuestion) = vbYes Then
+        firstRow = 2
+    Else
+        ws.Rows(1).Insert Shift:=xlDown
+        ws.Cells(1, nameCol).Value = "Gemeindename (original)"
+        firstRow = 2
+    End If
+
+    lastRow = ws.Cells(ws.Rows.count, nameCol).End(xlUp).Row
+
+    ws.Columns(resultCol).Insert Shift:=xlToRight
+
+    
+    ws.Cells(1, resultCol).Value = "Gemeindename (offiziell)"
+    ws.Rows(1).Font.Bold = True
+
+    For r = firstRow To lastRow
+        ws.Cells(r, resultCol).Value = ws.Cells(r, nameCol).Value
+        ValidateGemeindeCell ws.Cells(r, resultCol)
+    Next r
+
+    MsgBox "Validierung abgeschlossen.", vbInformation
+
+End Sub
+
+'Gruppe: Daten validieren
+'Beschreibung: Gemeindename nachvalidieren
+Sub gemeindename_nachvalidieren()
+
+    Dim ws As Worksheet
+    Dim colInput As Variant
+    Dim nameCol As Long
+    Dim firstRow As Long, lastRow As Long
+    Dim r As Long
+
+    Set ws = ActiveSheet
+
+    colInput = Application.InputBox( _
+        "Geben Sie die Buchstaben der Spalte ein, die nachvalidiert werden soll (z.B. A)", _
+        "Gemeindename nachvalidieren", Type:=2)
+    If colInput = False Then Exit Sub
+
+    nameCol = Columns(colInput).Column
+
+    If MsgBox("Hat die Tabelle eine Titelzeile?", vbYesNo + vbQuestion) = vbYes Then
+        firstRow = 2
+    Else
+        firstRow = 1
+    End If
+
+    lastRow = ws.Cells(ws.Rows.count, nameCol).End(xlUp).Row
+
+    ws.Cells(1, nameCol).Value = "Gemeindename (offiziell)"
+    ws.Cells(1, nameCol).Font.Bold = True
+
+    For r = firstRow To lastRow
+        ValidateGemeindeCell ws.Cells(r, nameCol)
+    Next r
+
+    MsgBox "Nachvalidierung abgeschlossen.", vbInformation
+
+End Sub
+'====================================================
+' Hilfsfunktion: validiert genau EINE Zelle
+'====================================================
+Private Sub ValidateGemeindeCell(ByVal targetCell As Range)
+
+    Dim result As String
+    Dim arr() As String
+
+    If Trim(targetCell.Value) = "" Then Exit Sub
+
+    ' Aufräumen
+    On Error Resume Next
+    targetCell.Validation.Delete
+    On Error GoTo 0
+    targetCell.Interior.Pattern = xlNone
+
+    ' API-Validierung
+    result = validate_gemeinde_name(targetCell.Value)
+
+    ' ? Kein Treffer
+    If result = "0" Or result = "" Or result = "nicht gefunden" Then
+        targetCell.Interior.Color = RGB(255, 200, 200)
+
+    ' ? Mehrere Treffer ? Dropdown
+    ElseIf InStr(result, ";") > 0 Then
+        arr = Split(result, ";")
+
+        With targetCell.Validation
+            .Add Type:=xlValidateList, _
+                 AlertStyle:=xlValidAlertStop, _
+                 Formula1:=Join(arr, ",")
+            .IgnoreBlank = True
+            .InCellDropdown = True
+        End With
+
+        targetCell.Value = arr(0)
+        targetCell.Interior.Color = RGB(255, 220, 180)
+
+    ' ? Genau ein Treffer
+    Else
+        targetCell.Value = result
+        targetCell.Interior.Color = RGB(200, 255, 200)
+    End If
+
+End Sub
+'Gruppe: Daten anreichern
+'Beschreibung: gemeinde_code bzw. BFSNr. zu Gemeindename mappen
+Sub map_gemeindecode_to_gname()
+    Dim ws As Worksheet
+    Dim colInput As Variant
+    Dim firstRow As Long
+    Dim lastRow As Long
+    Dim nameCol As Long
+    Dim insertCol As Long
+    Dim r As Long
+    
+    Set ws = ActiveSheet
+    
+    ' 1?? Spalte mit Gemeinde-Name abfragen
+    colInput = Application.InputBox( _
+        "Geben Sie die Buchstaben der Spalte ein, die den Gemeinde-Namen enthält (z.B. A)", _
+        "Gemeinde-Name Spalte", Type:=2)
+    If colInput = False Then Exit Sub
+    
+    nameCol = Columns(colInput).Column
+    
+    ' 2?? Titelzeile vorhanden?
+    If MsgBox("Hat die Tabelle eine Titelzeile?", vbYesNo + vbQuestion) = vbYes Then
+        firstRow = 2
+    Else
+        firstRow = 1
+    End If
+    
+    ' 3?? Letzte Zeile bestimmen
+    lastRow = ws.Cells(ws.Rows.count, nameCol).End(xlUp).Row
+    
+    ' 4?? Spalte rechts einfügen
+    insertCol = nameCol + 1
+    ws.Columns(insertCol).Insert Shift:=xlToRight
+    
+    ' 5?? Titelzeile setzen
+    If firstRow = 1 Then
+        ws.Rows(1).Insert Shift:=xlDown
+        firstRow = 2
+        lastRow = ws.Cells(ws.Rows.count, nameCol).End(xlUp).Row
+        ws.Cells(1, nameCol).Value = "gemeinde_name"
+        ws.Cells(1, nameCol).Font.Bold = True
+    End If
+        
+    ws.Cells(1, insertCol).Value = "gemeinde_code"
+    ws.Cells(1, insertCol).Font.Bold = True
+    
+    ' 6?? Formeln setzen
+    For r = firstRow To lastRow
+        If ws.Cells(r, nameCol).Value <> "" Then
+            ws.Cells(r, insertCol).FormulaLocal = _
+                "=map_gemeinde_code_to_name(" & _
+                ws.Cells(r, nameCol).Address(False, False) & ")"
+        End If
+    Next r
+    
+    MsgBox "Gemeinde-Code bzw. BFSNr. wurde erfolgreich aus den Gemeindenamen ermittelt!", vbInformation
+End Sub
+
+
+'Gruppe: Daten anreichern
+'Beschreibung: Gemeindename zu gemeinde_code mappen
+Sub map_gemeindename_to_gcode()
+    Dim ws As Worksheet
+    Dim colInput As Variant
+    Dim firstRow As Long
+    Dim lastRow As Long
+    Dim codeCol As Long
+    Dim insertCol As Long
+    
+    Set ws = ActiveSheet
+    
+    ' Benutzer fragt, in welcher Spalte der Gemeinde_code steht
+    colInput = Application.InputBox("Geben Sie die Buchstaben der Spalte ein, die den Gemeinde_code enthält (z.B. A)", _
+                                   "Gemeinde_code Spalte", Type:=2)
+    If colInput = False Then Exit Sub
+    codeCol = Columns(colInput).Column
+    
+    ' Prüfen, ob Titelzeile vorhanden
+    If MsgBox("Hat die Tabelle eine Titelzeile?", vbYesNo + vbQuestion) = vbYes Then
+        firstRow = 2
+    Else
+        firstRow = 1
+    End If
+    
+    ' Letzte Zeile bestimmen
+    lastRow = ws.Cells(ws.Rows.count, codeCol).End(xlUp).Row
+    
+    ' Spalte rechts einfügen
+    insertCol = codeCol + 1
+    ws.Columns(insertCol).Insert Shift:=xlToRight
+    
+    ' Titelzeile
+    If firstRow = 1 Then
+        ws.Rows(1).Insert Shift:=xlDown
+        firstRow = 2
+        lastRow = ws.Cells(ws.Rows.count, codeCol).End(xlUp).Row
+    End If
+    ws.Cells(1, codeCol).Value = "gemeinde_code"
+    ws.Cells(1, codeCol).Font.Bold = True
+    ws.Cells(1, insertCol).Value = "gemeinde_name"
+    ws.Cells(1, insertCol).Font.Bold = True
+    
+    ' Formeln einfügen
+    Dim r As Long
+    For r = firstRow To lastRow
+        If ws.Cells(r, codeCol).Value <> "" Then
+            ws.Cells(r, insertCol).FormulaLocal = _
+                "=map_gemeindezuweisungen_to_code(" & ws.Cells(r, codeCol).Address(False, False) & ";""gemeinde_name"")"
+        End If
+    Next r
+    
+    MsgBox "Spalte für Gemeinde-Name erfolgreich eingefügt!", vbInformation
+End Sub
+'Gruppe: Daten anreichern
+'Beschreibung: Bezirk zu gemeinde_code mappen
+Sub map_bezirk_to_gcode()
+    Dim ws As Worksheet
+    Dim colInput As Variant
+    Dim firstRow As Long
+    Dim lastRow As Long
+    Dim codeCol As Long
+    Dim insertCol As Long
+    Dim attributes As Variant
+    Dim i As Long
+    
+    Set ws = ActiveSheet
+    
+    ' Spalte mit Gemeinde-Code
+    colInput = Application.InputBox("Geben Sie die Buchstaben der Spalte ein, die den Gemeinde_code enthält (z.B. A)", _
+                                   "Gemeinde_code Spalte", Type:=2)
+    If colInput = False Then Exit Sub
+    codeCol = Columns(colInput).Column
+    
+    ' Titelzeile prüfen
+    If MsgBox("Hat die Tabelle eine Titelzeile?", vbYesNo + vbQuestion) = vbYes Then
+        firstRow = 2
+    Else
+        firstRow = 1
+    End If
+    
+    ' Letzte Zeile bestimmen
+    lastRow = ws.Cells(ws.Rows.count, codeCol).End(xlUp).Row
+    
+    ' Attribute für Bezirk
+    attributes = Array("bezirk_code", "bezirk_name")
+    
+    ' Spalten rechts einfügen
+    insertCol = codeCol + 1
+    ws.Columns(insertCol).Resize(, UBound(attributes) + 1).Insert Shift:=xlToRight
+    
+    ' Titelzeile setzen
+    If firstRow = 1 Then
+        ws.Rows(1).Insert Shift:=xlDown
+        firstRow = 2
+        lastRow = ws.Cells(ws.Rows.count, codeCol).End(xlUp).Row
+    End If
+    ws.Cells(1, codeCol).Value = "gemeinde_code"
+    ws.Cells(1, codeCol).Font.Bold = True
+    For i = LBound(attributes) To UBound(attributes)
+        ws.Cells(1, insertCol + i).Value = attributes(i)
+        ws.Cells(1, insertCol + i).Font.Bold = True
+    Next i
+    
+    ' Formeln einfügen
+    Dim r As Long
+    For r = firstRow To lastRow
+        If ws.Cells(r, codeCol).Value <> "" Then
+            For i = LBound(attributes) To UBound(attributes)
+                ws.Cells(r, insertCol + i).FormulaLocal = _
+                    "=map_gemeindezuweisungen_to_code(" & ws.Cells(r, codeCol).Address(False, False) & _
+                    ";""" & attributes(i) & """)"
+            Next i
+        End If
+    Next r
+    
+    MsgBox "Spalten für Bezirk-Code & Name erfolgreich eingefügt!", vbInformation
+End Sub
+'Gruppe: Daten anreichern
+'Beschreibung: Raumplanungsregion zu gemeinde_code mappen
+Sub map_region_to_gcode()
+    Dim ws As Worksheet
+    Dim colInput As Variant
+    Dim firstRow As Long
+    Dim lastRow As Long
+    Dim codeCol As Long
+    Dim insertCol As Long
+    Dim attributes As Variant
+    Dim i As Long
+    
+    Set ws = ActiveSheet
+    
+    ' Spalte mit Gemeinde-Code
+    colInput = Application.InputBox("Geben Sie die Buchstaben der Spalte ein, die den Gemeinde_code enthält (z.B. A)", _
+                                   "Gemeinde_code Spalte", Type:=2)
+    If colInput = False Then Exit Sub
+    codeCol = Columns(colInput).Column
+    
+    ' Titelzeile prüfen
+    If MsgBox("Hat die Tabelle eine Titelzeile?", vbYesNo + vbQuestion) = vbYes Then
+        firstRow = 2
+    Else
+        firstRow = 1
+    End If
+    
+    ' Letzte Zeile bestimmen
+    lastRow = ws.Cells(ws.Rows.count, codeCol).End(xlUp).Row
+    
+    ' Attribute für Raumplanungsregion
+    attributes = Array("raumplanungsregion_code", "raumplanungsregion_name")
+    
+    ' Spalten rechts einfügen
+    insertCol = codeCol + 1
+    ws.Columns(insertCol).Resize(, UBound(attributes) + 1).Insert Shift:=xlToRight
+    
+    ' Titelzeile setzen
+    If firstRow = 1 Then
+        ws.Rows(1).Insert Shift:=xlDown
+        firstRow = 2
+        lastRow = ws.Cells(ws.Rows.count, codeCol).End(xlUp).Row
+    End If
+    ws.Cells(1, codeCol).Value = "gemeinde_code"
+    ws.Cells(1, codeCol).Font.Bold = True
+    For i = LBound(attributes) To UBound(attributes)
+        ws.Cells(1, insertCol + i).Value = attributes(i)
+        ws.Cells(1, insertCol + i).Font.Bold = True
+    Next i
+    
+    ' Formeln einfügen
+    Dim r As Long
+    For r = firstRow To lastRow
+        If ws.Cells(r, codeCol).Value <> "" Then
+            For i = LBound(attributes) To UBound(attributes)
+                ws.Cells(r, insertCol + i).FormulaLocal = _
+                    "=map_gemeindezuweisungen_to_code(" & ws.Cells(r, codeCol).Address(False, False) & _
+                    ";""" & attributes(i) & """)"
+            Next i
+        End If
+    Next r
+    
+    MsgBox "Spalten für Raumplanungsregion erfolgreich eingefügt!", vbInformation
+End Sub
+'Gruppe: Daten anreichern
+'Beschreibung: Gebietszuweisungen zu gemeinde_code mappen
+Sub map_gebietszuweisungen_to_gcode()
+    Dim ws As Worksheet
+    Dim colInput As Variant
+    Dim firstRow As Long
+    Dim lastRow As Long
+    Dim codeCol As Long
+    Dim i As Long
+    Dim attributes As Variant
+    Dim insertCol As Long
+    
+    Set ws = ActiveSheet
+    
+    colInput = Application.InputBox("Geben Sie die Buchstaben der Spalte ein, die den gemeinde_code bzw. die BFSNr. enthält (z.B. A)", _
+                                   "gemeinde_code Spalte", Type:=2)
+    If colInput = False Then Exit Sub
+    
+    codeCol = Columns(colInput).Column
+    
+    If MsgBox("Hat die Tabelle eine Titelzeile?", vbYesNo + vbQuestion) = vbYes Then
+        firstRow = 2
+        ' Titelzeile hinzufügen später
+    Else
+        firstRow = 1
+    End If
+    
+    ' Letzte Zeile mit Daten bestimmen (nur in der Code-Spalte)
+    lastRow = ws.Cells(ws.Rows.count, codeCol).End(xlUp).Row
+    
+    ' Attribute definieren
+    attributes = Array("gemeinde_name", "bezirk_code", "bezirk_name", "raumplanungsregion_code", "raumplanungsregion_name")
+    
+    ' Spalten rechts vom Code einfügen
+    insertCol = codeCol + 1
+    ws.Columns(insertCol).Resize(, UBound(attributes) + 1).Insert Shift:=xlToRight
+    
+    ' Titelzeile setzen (inkl. Code-Spalte)
+    If firstRow = 1 Then
+        ' Keine Titelzeile vorhanden --> neue Zeile 1 einfügen
+        ws.Rows(1).Insert Shift:=xlDown
+        firstRow = 2 ' Daten beginnen jetzt in Zeile 2
+        ' Letzte Zeile nach dem Einfügen neu bestimmen
+        lastRow = ws.Cells(ws.Rows.count, codeCol).End(xlUp).Row
+        ' Titel für Code-Spalte
+        ws.Cells(1, codeCol).Value = "gemeinde_code"
+        ws.Cells(1, codeCol).Font.Bold = True
+    End If
+      
+    ' Titel für die eingefügten Spalten
+    For i = LBound(attributes) To UBound(attributes)
+        ws.Cells(1, insertCol + i).Value = attributes(i)
+        ws.Cells(1, insertCol + i).Font.Bold = True
+    Next i
+    
+    ' Formeln für jede Zeile setzen
+    Dim r As Long
+    For r = firstRow To lastRow
+        ' Nur wenn Code-Zelle nicht leer ist
+        If ws.Cells(r, codeCol).Value <> "" Then
+            For i = LBound(attributes) To UBound(attributes)
+                ws.Cells(r, insertCol + i).FormulaLocal = _
+                    "=map_gemeindezuweisungen_to_code(" & ws.Cells(r, codeCol).Address(False, False) & _
+                    ";""" & attributes(i) & """)"
+            Next i
+        End If
+    Next r
+    
+    MsgBox "Die Spalten für Gemeindedaten wurden erfolgreich eingefügt!", vbInformation
+End Sub
+'Gruppe: Daten konvertieren
+'Beschreibung: Ausgewählte Zellen in Werte umwandeln
+Sub convert_formula_to_wert()
+    Dim rng As Range
+    Dim area As Range
+    
+    ' Prüfen, ob Zellen markiert sind
+    If TypeName(Selection) <> "Range" Then
+        MsgBox "Bitte zuerst die Zellen auswählen, die in Werte umgewandelt werden sollen.", vbExclamation
+        Exit Sub
+    End If
+    
+    On Error Resume Next
+    ' Nur Formeln in der Auswahl
+    Set rng = Selection.SpecialCells(xlCellTypeFormulas)
+    On Error GoTo 0
+    
+    If rng Is Nothing Then
+        MsgBox "Keine Formeln in der Auswahl gefunden!", vbInformation
+        Exit Sub
+    End If
+    
+    ' Performance optimieren
+    Application.ScreenUpdating = False
+    Application.Calculation = xlCalculationManual
+    
+    ' Jede zusammenhängende Area einzeln bearbeiten
+    For Each area In rng.Areas
+        area.Value = area.Value
+    Next area
+    
+    Application.Calculation = xlCalculationAutomatic
+    Application.ScreenUpdating = True
+    
+    MsgBox "Alle Formeln in der Auswahl wurden in Werte umgewandelt!", vbInformation
+End Sub
+'Gruppe: Daten konvertieren
+'Beschreibung: Einfärbungen und Dropdown-Listen aus ausgewählten Zellen entfernen
+Sub clear_format_and_validation()
+    Dim rng As Range
+    Dim valCells As Range
+    
+    ' Prüfen, ob Zellen markiert sind
+    If TypeName(Selection) <> "Range" Then
+        MsgBox "Bitte zuerst die Zellen auswählen, die bereinigt werden sollen.", vbExclamation
+        Exit Sub
+    End If
+    
+    Set rng = Selection
+    
+    Application.ScreenUpdating = False
+    
+    ' Hintergrundfarben in der gesamten Auswahl entfernen auf einmal
+    rng.Interior.Pattern = xlNone
+    
+    ' Nur die Zellen mit Datenüberprüfung löschen
+    On Error Resume Next
+        Set valCells = rng.SpecialCells(xlCellTypeAllValidation)
+    On Error GoTo 0
+    
+    If Not valCells Is Nothing Then
+        valCells.Validation.Delete
+    End If
+    
+    Application.ScreenUpdating = True
+    
+    MsgBox "Alle Farben und Dropdowns in der Auswahl wurden entfernt!", vbInformation
+End Sub
