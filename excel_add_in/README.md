@@ -31,6 +31,8 @@ Dieses Excel Add-In unterstützt die Arbeit mit Gemeindenamen, Gemeindecodes (BF
 
 Alle Funktionen befinden sich unter **Add-Ins**. 
 
+> Hinweis: Der Quellcode für das VBA Makro bzw. die Datei Gebietsstammdaten_V1.1.xlsm befindet sich [hier](VBA_Code)
+
 ## Funktionen
 
 Die Funktionen entsprechen in ihrer Reihenfolge dem üblichen Anwendungsfall
