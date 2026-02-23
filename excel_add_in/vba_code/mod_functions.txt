@@ -1,0 +1,257 @@
+Public Function map_gemeindezuweisungen_to_code(code As Variant, attribut As String) As String
+    Dim json As String
+
+    json = get_gemeindezuweisungen_by_code(code, attribut)
+    
+    If json = "" Then Exit Function
+
+    map_gemeindezuweisungen_to_code = json
+End Function
+
+Public Function map_gemeinde_code_to_name(gemeinde_name As String) As String
+    Dim json As String
+
+    json = get_gemeinde_code_by_name(gemeinde_name)
+    If json = "" Then Exit Function
+
+    map_gemeinde_code_to_name = json
+End Function
+Public Function validate_gemeinde_name(gemeinde_name As String) As String
+    Dim result_array As Variant
+    Dim http As Object
+    Dim url As String
+    Dim json As String
+    Dim bytes As Variant
+    Dim postData As String
+    
+    If gemeinde_name = "" Then Exit Function
+    
+    gemeinde_name = Application.WorksheetFunction.EncodeURL(gemeinde_name)
+    
+    url = "https://gebietsstammdaten.statistik.zh.ch/api/gemeinden/gemeindename?gemeindename=" & gemeinde_name
+    
+    Set http = CreateObject("WinHttp.WinHttpRequest.5.1")
+    http.Open "GET", url, False
+    http.Send
+    
+    If http.status <> 200 Then
+        validate_gemeinde_name = "0"
+        Exit Function
+    End If
+    
+    bytes = http.ResponseBody
+    json = Utf8ToString(bytes)
+    
+    result_array = json_gemeindenamen_val_array(json)
+    validate_gemeinde_name = konv_variant_to_string(result_array, ";")
+End Function
+
+Private Function get_gemeindezuweisungen_by_code(code As Variant, attribut As String) As String
+    Dim http As Object
+    Dim url As String
+    Dim json As String
+    Dim bytes As Variant
+    
+    If code = "" Then Exit Function
+    
+    url = "https://gebietsstammdaten.statistik.zh.ch/api/gemeindezuweisungen/" & code
+    
+    Set http = CreateObject("WinHttp.WinHttpRequest.5.1")
+    http.Open "GET", url, False
+    http.Send
+    
+    If http.status <> 200 Then
+        get_gemeindezuweisungen_by_code = "0"
+        Exit Function
+    End If
+    
+    bytes = http.ResponseBody
+    json = Utf8ToString(bytes)
+    
+    
+    get_gemeindezuweisungen_by_code = json_gemeindezuweisungen(json, attribut)
+End Function
+Private Function get_gemeinde_code_by_name(gemeinde_name As String) As String
+    Dim http As Object
+    Dim url As String
+    Dim json As String
+    Dim bytes As Variant
+    Dim postData As String
+    
+    ' Prüfen
+    If gemeinde_name = "" Then
+        get_gemeinde_code_by_name = "Nicht gefunden. Gemeindename validieren."
+        Exit Function
+    End If
+    
+    gemeinde_name = Application.WorksheetFunction.EncodeURL(gemeinde_name)
+    
+    url = "https://gebietsstammdaten.statistik.zh.ch/api/gemeinden/gemeindename?gemeindename=" & gemeinde_name
+    
+    Set http = CreateObject("WinHttp.WinHttpRequest.5.1")
+    http.Open "GET", url, False
+    http.Send
+    
+    ' Status prüfen
+    If http.status <> 200 Then
+        get_gemeinde_code_by_name = "Nicht gefunden. Gemeindename validieren."
+        Exit Function
+    End If
+    
+    ' Antwort lesen
+    bytes = http.ResponseBody
+    json = Utf8ToString(bytes)
+    
+    ' JSON auswerten
+    get_gemeinde_code_by_name = json_gemeindenamen(json)
+End Function
+
+
+Private Function Utf8ToString(ByVal respBody As Variant) As String
+    Dim bytes() As Byte
+    bytes = respBody  ' jetzt als Byte-Array
+    With CreateObject("ADODB.Stream")
+        .Type = 1 ' Binary
+        .Open
+        .Write bytes
+        .Position = 0
+        .Type = 2 ' Text
+        .Charset = "UTF-8"
+        Utf8ToString = .ReadText
+        .Close
+    End With
+End Function
+Private Function json_gemeindezuweisungen(json As String, key As String) As Variant
+    
+    Dim pos As Long
+    Dim startPos As Long
+    Dim endPos As Long
+    Dim result As String
+    Dim is_code As Boolean
+    
+    is_code = Right(key, 5) = "_code"
+    
+    ' Key im gesamten JSON suchen
+    pos = InStr(json, """" & key & """:")
+    If pos = 0 Then
+        json_gemeindezuweisungen = "Nicht gefunden."
+        Exit Function
+    End If
+    
+    startPos = pos + Len("""" & key & """:")
+    
+    If is_code Then
+        ' Zahl lesen
+        endPos = startPos
+        Do While Mid(json, endPos, 1) Like "[0-9]"
+            endPos = endPos + 1
+        Loop
+        
+        result = Mid(json, startPos, endPos - startPos)
+        json_gemeindezuweisungen = CLng(result)
+        
+    Else
+        ' String lesen
+        startPos = startPos + 1
+        endPos = InStr(startPos, json, """")
+        result = Mid(json, startPos, endPos - startPos)
+        json_gemeindezuweisungen = result
+    End If
+
+End Function
+
+Private Function json_gemeindenamen(json As String) As Variant
+    
+    Dim pos As Long
+    Dim startPos As Long
+    Dim endPos As Long
+    Dim result As String
+    Dim key As String
+    
+    key = "gemeinde_code"
+    
+    ' Schlüssel im JSON suchen
+    pos = InStr(json, """" & key & """:")
+    If pos = 0 Then
+        json_gemeindenamen = "Nicht gefunden. Gemeindename validieren."
+        Exit Function
+    End If
+    
+    ' Start der Zahl
+    startPos = pos + Len("""" & key & """:")
+    
+    ' Zahl auslesen (bis kein numerisches Zeichen mehr kommt)
+    endPos = startPos
+    Do While Mid(json, endPos, 1) Like "[0-9]"
+        endPos = endPos + 1
+    Loop
+    
+    result = Mid(json, startPos, endPos - startPos)
+    
+    If result = "" Then
+        json_gemeindenamen = "Nicht gefunden. Gemeindename validieren."
+    Else
+        json_gemeindenamen = CLng(result)
+    End If
+
+End Function
+Private Function json_gemeindenamen_val_array(json As String) As Variant
+    Dim results() As String
+    Dim count As Long
+    Dim pos As Long
+    Dim startPos As Long
+    Dim endPos As Long
+    
+    count = 0
+    pos = 1
+    
+    ' Alle "gemeinde_name":"XYZ" suchen
+    Do
+        pos = InStr(pos, json, """gemeinde_name"":""")
+        If pos = 0 Then Exit Do
+        
+        ' Startposition des Wertes
+        startPos = pos + Len("""gemeinde_name"":""")
+        endPos = InStr(startPos, json, """")
+        
+        If endPos > startPos Then
+            ReDim Preserve results(count)
+            results(count) = Mid(json, startPos, endPos - startPos)
+            count = count + 1
+        End If
+        
+        pos = endPos + 1
+    Loop
+    
+    ' Kein Treffer ? Array mit "nicht gefunden"
+    If count = 0 Then
+        json_gemeindenamen_val_array = Array("nicht gefunden")
+    Else
+        json_gemeindenamen_val_array = results
+    End If
+End Function
+    
+ 
+Private Function konv_variant_to_string(arr As Variant, Optional sep As String = ";") As String
+    Dim i As Long
+    Dim result As String
+    
+    If IsEmpty(arr) Then Exit Function
+    If Not IsArray(arr) Then
+        konv_variant_to_string = CStr(arr)
+        Exit Function
+    End If
+    
+    For i = LBound(arr) To UBound(arr)
+        If arr(i) <> "" Then
+            result = result & arr(i) & sep
+        End If
+    Next i
+    
+    ' Letztes Trennzeichen entfernen
+    If Len(result) > 0 Then
+        result = Left(result, Len(result) - Len(sep))
+    End If
+    
+    konv_variant_to_string = result
+End Function
