@@ -14,7 +14,7 @@ Die Gebietsstammdaten stehen im [Kantonalen Datenkatalog](https://www.zh.ch/de/p
 
 ## Variablen
 
-Prinzipien der Variablennamen und detaillierter Beschrieb der einzelnen Variablen befindet sich [**im Variablenbeschrieb**](Variablen.md).
+Prinzipien der Variablennamen und detaillierter Beschrieb der einzelnen Variablen befinden sich [**im Variablenbeschrieb**](Variablen.md).
 
 
 ## Datenflüsse
@@ -31,8 +31,13 @@ Quelle der Daten bilden das [Amtliche Gemeindeverzeichnis des Bundesamt für Sta
 
   *--> [Link](https://gebietsstammdaten.statistik.zh.ch/)*
   
-- **Dokumentation und Anleitungen**  
-  Erstellung praxisnaher Dokumentationen, Anwendungsbeispiele sowie Skripte, die zeigen, wie die API in spezifischen Anwendungsfällen eingesetzt werden kann.
+- **Excel Add-In**  
+  Ein Excel Add-In, mit welchem auf Basis der REST-API Gemeindedaten validiert und angereichert werden können. 
+
+  *--> [Link](excel_add_in)*
+  
+- **Code-Vorlagen**  
+  Code-Vorlagen praxisnaher Anwendungsbeisiele, die zeigen, wie die Gebietsstammdaten und die API eingesetzt werden können.
 
   *--> [Link](code_vorlagen)*
 
