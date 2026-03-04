@@ -8,13 +8,13 @@
 
 ## Einleitung
 
-Dieses Repository enthält die **Gebietsstammdaten** des Kantons Zürich. Es ist eine zentrale Referenz für konsistente, qualitätsgesicherte Gebietsangaben, die in kantonalen Prozessen verwendet werden.
+Dieses Repository enthält Informationen zu den **Gebietsstammdaten** des Kantons Zürich. Es ist eine zentrale Referenz für konsistente, qualitätsgesicherte Gebietsangaben, die in kantonalen Prozessen verwendet werden.
 Die Gebietsstammdaten stehen im [Kantonalen Datenkatalog](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich) zur Verfügung.
 
 
 ## Variablen
 
-[**zum detaillierten Variablenbeschrieb**](Variablen.md)
+Prinzipien der Variablennamen und detaillierter Beschrieb der einzelnen Variablen befindet sich [**im Variablenbeschrieb**](Variablen.md).
 
 
 ## Datenflüsse
@@ -24,23 +24,23 @@ Quelle der Daten bilden das [Amtliche Gemeindeverzeichnis des Bundesamt für Sta
 <img src="images/Gebietsstammdaten_DF.jpg" alt="Datenflüsse Gebietsstammdaten" width="600">
 <br> </div>
 
-## Geplante Weiterentwicklungen 
+## Angebote rund um die Gebietsstammdaten
 
-Folgende Weiterentwicklungen sind geplant:
+- **REST-API**  
+  Es steht eine Programmierschnittstelle (REST-API) zur Verfügung, über die die Gebietsstammdaten direkt in Fachapplikationen und Prozesse eingebunden werden können. 
 
+  *--> [Link](https://gebietsstammdaten.statistik.zh.ch/)*
+  
 - **Dokumentation und Anleitungen**  
   Erstellung praxisnaher Dokumentationen, Anwendungsbeispiele sowie Skripte, die zeigen, wie die API in spezifischen Anwendungsfällen eingesetzt werden kann.
 
-  *--> Eine erste Codevorlage in R zur Historisierung der Gemeindecodes und -namen steht in den 
-  [Script-Vorlagen](script_vorlagen) bereits zur Verfügung.*
+  *--> [Link](code_vorlagen)*
+
+## Geplante Weiterentwicklungen
 
 - **Erweiterung des Datensatzes**  
   Die Gebietsstammdaten werden schrittweise um weitere Attribute (wie beispielsweise Koordinaten) und Gebietstypen (wie beispielsweise Schulgemeinden) ergänzt.
   
-- **REST-API**  
-  Bereitstellung einer Programmierschnittstelle (REST-API), über die die Gebietsstammdaten direkt in Fachapplikationen und Prozesse eingebunden werden können. 
-
-  *--> Eine Beta-Version steht bereits zur Verfügung: [Link](https://gebietsstammdaten.statistik.zh.ch/)*
 
 - **Reconcile Service für OpenRefine**  
   Ergänzend zur API ist die Entwicklung eines Reconcile-Services für [OpenRefine](https://openrefine.org/) geplant. Damit wird die komfortable Zuordnung und Bereinigung der eigenen Daten ohne Programmierkenntnisse möglich. 
