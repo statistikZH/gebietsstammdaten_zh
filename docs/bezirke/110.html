@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Bezirk Winterthur</title>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f6f9;
+}
+
+.header {
+    background-color: #0076bd;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+}
+
+.header img {
+    height: 60px;
+    margin-right: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.content {
+    padding: 40px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+
+.card h2 {
+    color: #0076bd;
+    margin-top: 0;
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 12px;
+}
+
+.download-btn {
+    background-color: #0076bd;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.download-btn:hover {
+    background-color: #005fa3;
+}
+
+.stat-box {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.gemeinden-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.gemeinde-chip {
+    background-color: #eef3f8;
+    color: #003D7A;
+    padding: 8px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid #d0d7e2;
+    transition: all 0.2s ease;
+}
+
+.gemeinde-chip:hover {
+    background-color: #0076bd;
+    color: white;
+    border-color: #0076bd;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <img src="../logo.svg" alt="Zürich Leu">
+    <h1>Bezirk Winterthur</h1>
+</div>
+
+<div class="content">
+
+
+<div class="card">
+<p><strong>Bezirk-Code:</strong> 110<br></p>
+<p><strong>Anzahl Gemeinden:</strong> 19</p>
+</div>
+
+<div class="card">
+<h2>Gemeinden des Bezirks</h2>
+
+<div class="gemeinden-grid">
+        <a class="gemeinde-chip" href="../gemeinden/211.html" target="_blank" rel="noopener">
+            Altikon
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/213.html" target="_blank" rel="noopener">
+            Brütten
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/216.html" target="_blank" rel="noopener">
+            Dinhard
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/214.html" target="_blank" rel="noopener">
+            Dägerlen
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/215.html" target="_blank" rel="noopener">
+            Dättlikon
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/294.html" target="_blank" rel="noopener">
+            Elgg
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/218.html" target="_blank" rel="noopener">
+            Ellikon an der Thur
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/219.html" target="_blank" rel="noopener">
+            Elsau
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/220.html" target="_blank" rel="noopener">
+            Hagenbuch
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/221.html" target="_blank" rel="noopener">
+            Hettlingen
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/223.html" target="_blank" rel="noopener">
+            Neftenbach
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/224.html" target="_blank" rel="noopener">
+            Pfungen
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/225.html" target="_blank" rel="noopener">
+            Rickenbach (ZH)
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/226.html" target="_blank" rel="noopener">
+            Schlatt (ZH)
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/227.html" target="_blank" rel="noopener">
+            Seuzach
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/228.html" target="_blank" rel="noopener">
+            Turbenthal
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/298.html" target="_blank" rel="noopener">
+            Wiesendangen
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/230.html" target="_blank" rel="noopener">
+            Winterthur
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/231.html" target="_blank" rel="noopener">
+            Zell (ZH)
+        </a>
+        </div>
+
+</div>
+
+<div class="card">
+<h2>Lage</h2>
+
+<iframe src="https://map.geo.admin.ch/embed.html?ch.swisstopo.swissboundaries3d-bezirk-flaeche.fill=110"></iframe>
+
+</div>
+
+<div class="card">
+<h2>Downloads</h2>
+
+<a class="download-btn" href="maps/110.geojson" download>GeoJSON</a>
+
+</div>
+
+</div>
+
+<footer>
+© Statistisches Amt des Kantons Zürich
+</footer>
+
+</body>
+</html>

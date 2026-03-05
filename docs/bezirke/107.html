@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Bezirk Meilen</title>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f6f9;
+}
+
+.header {
+    background-color: #0076bd;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+}
+
+.header img {
+    height: 60px;
+    margin-right: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.content {
+    padding: 40px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+
+.card h2 {
+    color: #0076bd;
+    margin-top: 0;
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 12px;
+}
+
+.download-btn {
+    background-color: #0076bd;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.download-btn:hover {
+    background-color: #005fa3;
+}
+
+.stat-box {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.gemeinden-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.gemeinde-chip {
+    background-color: #eef3f8;
+    color: #003D7A;
+    padding: 8px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid #d0d7e2;
+    transition: all 0.2s ease;
+}
+
+.gemeinde-chip:hover {
+    background-color: #0076bd;
+    color: white;
+    border-color: #0076bd;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <img src="../logo.svg" alt="Zürich Leu">
+    <h1>Bezirk Meilen</h1>
+</div>
+
+<div class="content">
+
+
+<div class="card">
+<p><strong>Bezirk-Code:</strong> 107<br></p>
+<p><strong>Anzahl Gemeinden:</strong> 11</p>
+</div>
+
+<div class="card">
+<h2>Gemeinden des Bezirks</h2>
+
+<div class="gemeinden-grid">
+        <a class="gemeinde-chip" href="../gemeinden/151.html" target="_blank" rel="noopener">
+            Erlenbach (ZH)
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/152.html" target="_blank" rel="noopener">
+            Herrliberg
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/153.html" target="_blank" rel="noopener">
+            Hombrechtikon
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/154.html" target="_blank" rel="noopener">
+            Küsnacht (ZH)
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/156.html" target="_blank" rel="noopener">
+            Meilen
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/155.html" target="_blank" rel="noopener">
+            Männedorf
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/157.html" target="_blank" rel="noopener">
+            Oetwil am See
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/158.html" target="_blank" rel="noopener">
+            Stäfa
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/159.html" target="_blank" rel="noopener">
+            Uetikon am See
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/161.html" target="_blank" rel="noopener">
+            Zollikon
+        </a>
+        
+        <a class="gemeinde-chip" href="../gemeinden/160.html" target="_blank" rel="noopener">
+            Zumikon
+        </a>
+        </div>
+
+</div>
+
+<div class="card">
+<h2>Lage</h2>
+
+<iframe src="https://map.geo.admin.ch/embed.html?ch.swisstopo.swissboundaries3d-bezirk-flaeche.fill=107"></iframe>
+
+</div>
+
+<div class="card">
+<h2>Downloads</h2>
+
+<a class="download-btn" href="maps/107.geojson" download>GeoJSON</a>
+
+</div>
+
+</div>
+
+<footer>
+© Statistisches Amt des Kantons Zürich
+</footer>
+
+</body>
+</html>
