@@ -179,14 +179,26 @@ footer {
 </div>
 
 <div class="card">
-<h2>Downloads</h2>
-
-<a class="download-btn" href="maps/107.geojson" download>GeoJSON</a>
-
+    <h2>Geodaten</h2>
+    <a class="download-btn" href="https://geo.zh.ch/maps?x=2691022.085&y=1237642.4686&scale=70000&basemap=arelkbackgroundzh" target="_blank">Geoportal Kanton Zürich</a>
+   <a class="download-btn" href="https://maps.zh.ch/wfs/OGDZHWFS?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ms:ogd-0095_arv_basis_up_bezirke_f&outputFormat=geojson&FILTER=%3CFilter%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3Ebezirk%3C/PropertyName%3E%3CLiteral%3EMeilen%3C/Literal%3E%3C/PropertyIsEqualTo%3E%3C/Filter%3E" target="_blank">GeoJSON (WFS)</a>
+<a class="download-btn" href="https://maps.zh.ch/wfs/OGDZHWFS?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ms:ogd-0095_arv_basis_up_bezirke_f&outputFormat=gml3&FILTER=%3CFilter%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3Ebezirk%3C/PropertyName%3E%3CLiteral%3EMeilen%3C/Literal%3E%3C/PropertyIsEqualTo%3E%3C/Filter%3E" target="_blank">GML</a>
 </div>
 
+<div class="card">
+    <h2>Datenquellen / Links</h2>
+    <p>    
+        Gemeinden und Bezirke: 
+        <a href="https://www.bfs.admin.ch/bfs/de/home/grundlagen/agvch.html" target="_blank">BFS – Amtliches Gemeindenverzeichnis</a><br>
+        Raumplanungsregionen: 
+        <a href="https://www.bfs.admin.ch/bfs/de/home/statistiken/querschnittsthemen/raeumliche-analysen/raeumliche-gliederungen/regionalpolitische-gliederungen.html" target="_blank">Raumplanungsregionen</a><br>
+        Gebietsstammdaten ZH: 
+        <a href="https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich" target="_blank">Datenkatalog ZH</a><br>
+Geoportal Kanton Zürich: 
+<a href="https://geo.zh.ch/maps?x=2682088&y=1253620&scale=282230&basemap=arelkbackgroundzh" target="_blank">GIS-Browser</a>
+    </p>
 </div>
-
+</div>
 <footer>
 © Statistisches Amt des Kantons Zürich
 </footer>
