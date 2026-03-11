@@ -1,0 +1,165 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+@base <https://statistikZH.github.io/gebietsstammdaten_zh/ontology> .
+@prefix gebietsstammdaten_zh: <https://statistikZH.github.io/gebietsstammdaten_zh/ontology#> .
+
+<https://statistikZH.github.io/gebietsstammdaten_zh/ontology>
+    a owl:Ontology ;
+    dct:license <http://creativecommons.org/licenses/by/3.0/> ;
+    dct:title "Eine Ontologie zu den Gebietsstammdaten ZH"@de ;
+    dct:description "Formale Beschreibung von Gebieten des Kantons Zürich."@de ;
+    dct:publisher "Statistisches Amt des Kantons Zürich"@de ;
+    dct:creator "Rebekka Plüss, Statistisches Amt des Kantons Zürich"@de ;
+    owl:versionInfo "2026-03-11"^^xsd:date .
+
+#
+# CLASSES
+#
+
+gebietsstammdaten_zh:Gebiet
+    a rdfs:Class ;
+    rdfs:label "Gebiet"@de ;
+    rdfs:comment "Administrative oder planerische Gebietseinheit im Kanton Zürich (Gemeinde, Bezirk, Raumplanungsregion)."@de .
+
+gebietsstammdaten_zh:Gemeinde
+    a rdfs:Class ;
+    rdfs:label "Gemeinde"@de ;
+    rdfs:subClassOf gebietsstammdaten_zh:Gebiet ;
+    rdfs:comment "Politische Gemeinde im Kanton Zürich."@de .
+
+gebietsstammdaten_zh:Bezirk
+    a rdfs:Class ;
+    rdfs:label "Bezirk"@de ;
+    rdfs:subClassOf gebietsstammdaten_zh:Gebiet ;
+    rdfs:comment "Verwaltungsbezirk des Kantons Zürich, enthält Gemeinden."@de .
+
+gebietsstammdaten_zh:Raumplanungsregion
+    a rdfs:Class ;
+    rdfs:label "Raumplanungsregion"@de ;
+    rdfs:subClassOf gebietsstammdaten_zh:Gebiet ;
+    rdfs:comment "Planerische Region im Kanton Zürich, enthält Gemeinden."@de .
+
+
+gebietsstammdaten_zh:Gebietsversion
+    a rdfs:Class ;
+    rdfs:label "Gebietsversion"@de ;
+    rdfs:subClassOf gebietsstammdaten_zh:Gebiet ;
+    rdfs:comment "Eine historische Version eines Gebietes mit Gültigkeitsdauer."@de .
+
+
+#
+# IDENTIFIKATOREN & NAMEN
+#
+
+gebietsstammdaten_zh:gebiet_code
+    a rdf:Property ;
+    rdfs:label "Gebietscode"@de ;
+    rdfs:domain gebietsstammdaten_zh:Gebiet ;
+    rdfs:range xsd:int ;
+    rdfs:subPropertyOf skos:notation ;
+    rdfs:subPropertyOf dct:identifier ;
+    rdfs:comment "Amtlicher Identifikationscode eines Gebietes (BFS-Nummer für Gemeinden, Bezirke, RPR)."@de .
+
+gebietsstammdaten_zh:gebiettyp_code
+    a rdf:Property ;
+    rdfs:label "Gebietstypcode"@de ;
+    rdfs:domain gebietsstammdaten_zh:Gebiet ;
+    rdfs:range xsd:int ;
+    rdfs:comment "Numerischer Code für den Typ des Gebietes (z.B. Gemeinde = 3, Bezirk = 2, Raumplanungsregion = 1)."@de .
+
+gebietsstammdaten_zh:gebiet_name
+    a rdf:Property ;
+    rdfs:label "Gebietsname"@de ;
+    rdfs:domain gebietsstammdaten_zh:Gebiet ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf rdfs:label ;
+    rdfs:comment "Offizieller Name eines Gebietes, zusätzlich zum allgemeinen rdfs:label."@de .
+
+#
+# GEODATEN
+#
+
+gebietsstammdaten_zh:geoJSON
+    a rdfs:Property ;
+    rdfs:label "GeoJSON Geometrie"@de ;
+    rdfs:domain gebietsstammdaten_zh:Gebiet ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "Link zur GeoJSON-Datei der Gebietsgrafik."@de .
+
+gebietsstammdaten_zh:gml
+    a rdfs:Property ;
+    rdfs:label "GML Geometrie"@de ;
+    rdfs:domain gebietsstammdaten_zh:Gebiet ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "Link zur GML-Datei der Gebietsgrafik."@de .
+
+gebietsstammdaten_zh:gis_browser
+    a rdfs:Property ;
+    rdfs:label "GIS Browser"@de ;
+    rdfs:domain gebietsstammdaten_zh:Gebiet ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "Link zum Geoportal des Kantons Zürich für dieses Gebiet."@de .
+
+#
+# RELATIONEN / HIERARCHIE
+#
+
+gebietsstammdaten_zh:gemeinde_bezirk
+    a rdfs:Property ;
+    rdfs:domain gebietsstammdaten_zh:Gemeinde ;
+    rdfs:range gebietsstammdaten_zh:Bezirk ;
+    rdfs:label "Gemeinde gehört zu Bezirk"@de ;
+    rdfs:comment "Verknüpft eine Gemeinde mit ihrem übergeordneten Bezirk."@de .
+
+gebietsstammdaten_zh:gemeinde_raumplanungsregion
+    a rdfs:Property ;
+    rdfs:domain gebietsstammdaten_zh:Gemeinde ;
+    rdfs:range gebietsstammdaten_zh:Raumplanungsregion ;
+    rdfs:label "Gemeinde gehört zu Raumplanungsregion"@de ;
+    rdfs:comment "Verknüpft eine Gemeinde mit der zugehörigen Raumplanungsregion."@de .
+
+gebietsstammdaten_zh:raumplanungsregion_gemeinde
+    a rdfs:Property ;
+    rdfs:domain gebietsstammdaten_zh:Raumplanungsregion ;
+    rdfs:range gebietsstammdaten_zh:Gemeinde ;
+    rdfs:label "Raumplanungsregion enthält Gemeinde"@de ;
+    rdfs:inverseOf gebietsstammdaten_zh:gemeinde_raumplanungsregion ;
+    rdfs:comment "Verknüpft eine Raumplanungsregion mit den zugehörigen Gemeinden. Wird als Inverse der 'gemeinde_raumplanungsregion'-Relation verwendet."@de .
+
+gebietsstammdaten_zh:bezirk_gemeinde
+    a rdfs:Property ;
+    rdfs:domain gebietsstammdaten_zh:Bezirk ;
+    rdfs:range gebietsstammdaten_zh:Gemeinde ;
+    rdfs:label "Bezirk enthält Gemeinde"@de ;
+    rdfs:inverseOf gebietsstammdaten_zh:gemeinde_bezirk ;
+    rdfs:comment "Verknüpft einen Bezirk mit den zugehörigen Gemeinden. Wird als Inverse der 'gemeinde_bezirk'-Relation verwendet."@de .
+
+#
+# VERSIONIERUNG 
+#
+
+gebietsstammdaten_zh:start_datum
+    a rdf:Property ;
+    rdfs:domain gebietsstammdaten_zh:Gebiet ;
+    rdfs:range xsd:date ;
+    rdfs:label "Startdatum"@de ;
+    rdfs:comment "Startdatum der Gültigkeit des Gebietes oder der Gebietsversion."@de .
+
+gebietsstammdaten_zh:end_datum
+    a rdf:Property ;
+    rdfs:domain gebietsstammdaten_zh:Gebietsversion ;
+    rdfs:range xsd:date ;
+    rdfs:label "Enddatum"@de ;
+    rdfs:comment "Enddatum, bis zu dem diese Gebietsversion gültig war."@de .
+
+gebietsstammdaten_zh:fruehere_version
+    a rdfs:Property ;
+    rdfs:domain gebietsstammdaten_zh:Gebiet ;
+    rdfs:range gebietsstammdaten_zh:Gebietsversion ;
+    rdfs:label "Frühere Version"@de ;
+    rdfs:comment "Verknüpft ein aktuelles Gebiet mit seinen früheren Versionen."@de .

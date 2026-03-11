@@ -31,3 +31,36 @@ Typische Anwendungsfälle:
 
 Die Installation erfolgt idealerweise in einer virtuellen Umgebung (z. B. mit uv).
 Beispiel-Notebook: gebietsstammdaten_demo.ipynb.
+
+
+erDiagram
+
+GEBIET {
+    int bfsNummer
+    string label
+    uri geoJSON
+    uri gml
+    uri geoPortal
+    uri datenquelle
+}
+
+GEMEINDE {
+}
+
+BEZIRK {
+}
+
+RAUMPLANUNGSREGION {
+}
+
+GEBIET ||--o{ GEMEINDE : subclass
+GEBIET ||--o{ BEZIRK : subclass
+GEBIET ||--o{ RAUMPLANUNGSREGION : subclass
+
+GEMEINDE }o--|| BEZIRK : gehoertZuBezirk
+
+GEMEINDE }o--|| RAUMPLANUNGSREGION : gehoertZuRaumplanungsregion
+
+BEZIRK ||--o{ GEMEINDE : enthaeltGemeinde
+
+RAUMPLANUNGSREGION ||--o{ GEMEINDE : enthaeltGemeinde
