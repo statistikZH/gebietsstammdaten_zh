@@ -1,0 +1,22 @@
+[project]
+name = "gebietsstammdaten-zh"
+version = "0.1.0"
+description = "Zentrale Referenz für konsistente, qualitätsgesicherte Gebietsangaben, die in kantonalen Prozessen verwendet werden."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "folium>=0.20.0",
+    "ipykernel>=7.1.0",
+    "sparqlwrapper>=1.8.5",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+]
+
+
