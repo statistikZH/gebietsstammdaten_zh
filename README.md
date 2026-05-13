@@ -44,7 +44,7 @@ Quelle der Daten bilden das [Amtliche Gemeindeverzeichnis des Bundesamt für Sta
 ## Geplante Weiterentwicklungen
 
 - **Erweiterung des Datensatzes**  
-  Die Gebietsstammdaten werden schrittweise um weitere Attribute (wie beispielsweise Koordinaten) und Gebietstypen (wie beispielsweise Schulgemeinden) ergänzt.
+  Die Gebietsstammdaten werden schrittweise um weitere Gebietstypen (wie beispielsweise Schulgemeinden) ergänzt.
   
 
 - **Reconcile Service für OpenRefine**  
