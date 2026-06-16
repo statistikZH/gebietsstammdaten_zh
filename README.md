@@ -2,26 +2,18 @@
 
 # Gebietsstammdaten Kanton Zürich
 
-<div align="left"><br> 
-<img src="images/gebietsstammdaten.png" alt="Übersicht Gebietsstammdaten" width="400">
-<br> </div>
-
-## Einleitung
-
 Dieses Repository enthält Informationen zu den **Gebietsstammdaten** des Kantons Zürich. Es ist eine zentrale Referenz für konsistente, qualitätsgesicherte Gebietsangaben, die in kantonalen Prozessen verwendet werden.
 Die Gebietsstammdaten stehen im [Kantonalen Datenkatalog](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich) zur Verfügung.
-
 
 ## Variablen
 
 Prinzipien der Variablennamen und detaillierter Beschrieb der einzelnen Variablen befinden sich [**im Variablenbeschrieb**](Variablen.md).
 
-
 ## Datenflüsse
 
 Quelle der Daten bilden das [Amtliche Gemeindeverzeichnis des Bundesamt für Statistik (BFS)](https://www.bfs.admin.ch/bfs/de/home/grundlagen/agvch.html) und die Namen und Codes der [Raumplanungsregionen, die vom Bundesamt für Raumentwicklung (ARE) und den kantonalen Raumplanungsfachstellen](https://www.bfs.admin.ch/bfs/de/home/statistiken/querschnittsthemen/raeumliche-analysen/raeumliche-gliederungen/regionalpolitische-gliederungen.html) definitiert werden. Diese werden in das Dataware House des Statistischen Amts des Kantons Zürich (STAT) geladen und aktuell gehalten. Das Dataware House des STAT ist wiederum Quelle für die automatisierte Pipeline zur Erstellung und Publikation der Gebietsstammdaten ZH als Open Governement Data (OGD) und als Programmierschnittstelle (REST API) zur Weiterverwendung und Einbindung der Gebietsstammdaten in kantonalen Datenverarbeitungsprozessen. 
 <div align="center"><br> 
-<img src="images/Gebietsstammdaten_DF.jpg" alt="Datenflüsse Gebietsstammdaten" width="500">
+<img src="images/Gebietsstammdaten_DF.jpg" alt="Datenflüsse Gebietsstammdaten" width="700">
 <br> </div>
 
 ## Angebote rund um die Gebietsstammdaten
