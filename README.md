@@ -30,6 +30,9 @@ Quelle der Daten bilden das [Amtliche Gemeindeverzeichnis des Bundesamt für Sta
   Es steht eine Programmierschnittstelle (REST-API) zur Verfügung, über die die Gebietsstammdaten direkt in Fachapplikationen und Prozesse eingebunden werden können. 
 
   *--> [Link](https://gebietsstammdaten.statistik.zh.ch/)*
+
+- **Reconcile Service für OpenRefine**  
+  Integriert in der API ist auch ein Reconcile-Service für [OpenRefine](https://openrefine.org/). Damit wird die komfortable Zuordnung und Bereinigung der eigenen Daten ohne Programmierkenntnisse möglich. 
   
 - **Excel Add-In**  
   Ein Excel Add-In, mit welchem auf Basis der REST-API Gemeindedaten validiert und angereichert werden können. 
@@ -45,12 +48,10 @@ Quelle der Daten bilden das [Amtliche Gemeindeverzeichnis des Bundesamt für Sta
 
 - **Erweiterung des Datensatzes**  
   Die Gebietsstammdaten werden schrittweise um weitere Gebietstypen (wie beispielsweise Schulgemeinden) ergänzt.
+
+- **Erweiterung der Angebote**
+  Die Angebote rund um die Gebietsstammdaten, wie die API und der Reconcile Service werden stetig gemäss den Nutzenden-Rückmeldungen optimiert.
   
-
-- **Reconcile Service für OpenRefine**  
-  Ergänzend zur API ist die Entwicklung eines Reconcile-Services für [OpenRefine](https://openrefine.org/) geplant. Damit wird die komfortable Zuordnung und Bereinigung der eigenen Daten ohne Programmierkenntnisse möglich. 
-
-
 ## Kontakt
 Haben Sie Fragen oder Feedback? <br><br>
 [Schreiben Sie](mailto:dm@statistik.ji.zh.ch) ans [Team Data Management](https://www.zh.ch/de/direktion-der-justiz-und-des-innern/statistisches-amt/data-management.html) des Statistischen Amts des Kantons Zürich
