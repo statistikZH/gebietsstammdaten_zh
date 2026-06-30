@@ -36,7 +36,6 @@ Die Codes der Gebietstypen orientieren sich wo möglich an der Systematik des Bu
 Hinweise:
 
 - Gebietstypen können – müssen aber nicht – in einer Hierarchie zueinander stehen (z. B. Kanton – Bezirk – Gemeinde). Dies wird aktuell über die Tabelle [Gemeindezuweisungen](#tabelle-gemeindezuweisungen-zu-bezirk-und-raumplanungsregion-kanton-zürich) abgebildet.
-- In der GIS-Welt werden andere Codes für Gebietstypen verwendet. Eine Mapping-Tabelle ist in Planung.
 
 ---
 
