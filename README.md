@@ -23,11 +23,18 @@ Quelle der Daten bilden das [Amtliche Gemeindeverzeichnis des Bundesamt für Sta
 
   *--> [Link](https://gebietsstammdaten.statistik.zh.ch/)*
 
+- **R-Package zhGebiete**  
+  Basierend auf der REST-API ermöglicht das R-Package standardisierte Abfragen der Gebietsstammdaten und die Validierung und Anreicherung der eigenen Daten.
+
+  *--> [Link](https://github.com/statistikZH/zhGebiete)*
+
 - **Reconcile Service für OpenRefine**  
-  Integriert in der API ist auch ein Reconcile-Service für [OpenRefine](https://openrefine.org/). Damit wird die komfortable Zuordnung und Bereinigung der eigenen Daten ohne Programmierkenntnisse möglich. 
+  Integriert in der API ist auch ein Reconcile-Service für [OpenRefine](https://openrefine.org/). Damit wird die komfortable Zuordnung und Bereinigung der eigenen Daten ohne Programmierkenntnisse möglich. OpenRefine ist eine OpenSource-Applikation, welche Mitarbeitende des Kantons Zürich über das Service-Portal beziehen können.
+
+  *--> Anleitung folgt*
   
 - **Excel Add-In**  
-  Ein Excel Add-In, mit welchem auf Basis der REST-API Gemeindedaten validiert und angereichert werden können. 
+  Mit dem Excel Add-In können auf Basis der REST-API Gemeindedaten validiert und angereichert werden. 
 
   *--> [Link](excel_add_in)*
   
