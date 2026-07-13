@@ -53,7 +53,7 @@ Quelle der Daten bilden das [Amtliche Gemeindeverzeichnis des Bundesamt für Sta
   
 ## Kontakt
 Haben Sie Fragen oder Feedback? <br><br>
-[Schreiben Sie](mailto:dm@statistik.ji.zh.ch) ans [Team Data Management](https://www.zh.ch/de/direktion-der-justiz-und-des-innern/amt-fuer-statistik-und-daten/data-management.html) des Statistischen Amts des Kantons Zürich
+[Schreiben Sie](mailto:dm@statistik.ji.zh.ch) ans [Team Data Management](https://www.zh.ch/de/direktion-der-justiz-und-des-innern/amt-fuer-statistik-und-daten/data-management.html) des Amts für Statistik und Daten
 oder melden Sie sich direkt bei: <br><br>
 Rebekka Plüss <br>
 rebekka.pluess@statistik.ji.zh.ch <br>
