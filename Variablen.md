@@ -87,7 +87,7 @@ Es ist zu beachten, dass in anderen fachlichen oder technischen Kontexten teilwe
 
 | Name | Typ | Beschreibung |
 |---|---|---|
-| gebietstyp_code | Zahl | Code des Gebietstyps Raumplanungsregion (Verwendung im STAT) |
+| gebietstyp_code | Zahl | Code des Gebietstyps Raumplanungsregion (Verwendung im ASD) |
 | raumplanungsregion_code | Zahl | Offizieller Code der Raumplanungsregion (Vergabe durch ARE/Kantone) |
 | raumplanungsregion_name | Text | Offizieller Name der Raumplanungsregion (Vergabe durch ARE/Kantone) |
 
