@@ -1,4 +1,4 @@
-## Gebietsstammdaten ZH: Variablenbeschrieb
+## Gebietsstammdaten ZH: Grundprinzipien, Datenmodell und Variablenbeschrieb
 
 ### Grundprinzipien
 
@@ -58,6 +58,12 @@ Es ist zu beachten, dass in anderen fachlichen oder technischen Kontexten teilwe
 - `MunicipalityID`
 - `GDE_Nummer`
 - ...
+
+### Datenmodell
+---
+<div align="center"><br> 
+<img src="images/Datenmodell_OGD_Gebietsstammdaten.jpg" alt="Datenflüsse Gebietsstammdaten" width="700">
+<br> </div>
 
 ### Detaillierter Variablenbeschrieb
 ---
@@ -168,4 +174,3 @@ Es ist zu beachten, dass in anderen fachlichen oder technischen Kontexten teilwe
 [zu den Daten](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich/distributions/6504)
 
 ---
-
