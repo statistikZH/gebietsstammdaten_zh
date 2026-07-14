@@ -1,8 +1,8 @@
-## Gebietsstammdaten ZH: Grundprinzipien, Datenmodell und Variablenbeschrieb
+# Gebietsstammdaten ZH: Grundprinzipien, Datenmodell und Variablenbeschrieb
 
-### Grundprinzipien
+## Grundprinzipien
 
-#### Allgemein
+### Allgemein
 
 Stammdaten sind oft als Wertetabellen mit **Code** und **Name** aufgebaut. Deshalb verwenden wir konsequent die Benennung:
 
@@ -14,32 +14,28 @@ Beispiel:
 - `gemeinde_code`
 - `gemeinde_name`
 
-Der Code dient der eindeutigen Identifikation, der Name ist die offizielle bzw. fachlich gültige Bezeichnung. 
+Der Code dient der eindeutigen Identifikation, der Name ist die offizielle bzw. fachlich gültige Bezeichnung.
 
 Ziel ist es, die Variablennamen möglichst **allgemeingültig und kontextunabhängig verständlich** zu halten. Deshalb verzichten wir beispielsweise soweit möglich auf Abkürzungen.
 
----
-
-#### Gebietstypen
+### Gebietstypen
 
 Jedes Gebiet gehört zu einem Gebietstyp (z. B. Gemeinde, Bezirk, Kanton). Die Gebietstypen besitzen ebenfalls einen eigenen Code (`gebietstyp_code`).
 
 Die Codes der Gebietstypen orientieren sich wo möglich an der Systematik des Bundesamts für Statistik (BFS), insbesondere am Amtlichen Gemeindeverzeichnis (Attribut *Level*). Im Moment sind es folgende Codes:
 
-| gebietstyp_code | gebietstyp_name     |
-|-----------------|---------------------|
-| 1               | Kanton              |
-| 2               | Bezirk              |
-| 3               | Gemeinde            |
-| 6               | Raumplanungsregion  |
+| gebietstyp_code | gebietstyp_name |
+|---|---|
+| 1 | Kanton |
+| 2 | Bezirk |
+| 3 | Gemeinde |
+| 6 | Raumplanungsregion |
 
 Hinweise:
 
 - Gebietstypen können – müssen aber nicht – in einer Hierarchie zueinander stehen (z. B. Kanton – Bezirk – Gemeinde). Dies wird aktuell über die Tabelle [Gemeindezuweisungen](#tabelle-gemeindezuweisungen-zu-bezirk-und-raumplanungsregion-kanton-zürich) abgebildet.
 
----
-
-#### Eindeutigkeit
+### Eindeutigkeit
 
 Ein Gebiet ist eindeutig bestimmt durch die Kombination von:
 
@@ -48,129 +44,77 @@ Ein Gebiet ist eindeutig bestimmt durch die Kombination von:
 
 Damit können alle Gebiete grundsätzlich in einer gemeinsamen Tabelle geführt und flexibel ausgewertet werden. Eine entsprechende Erweiterung ist vorgesehen.
 
----
+### Unterschiedliche Variablennamen je Kontext
 
-#### Unterschiedliche Variablennamen je Kontext
-
-Es ist zu beachten, dass in anderen fachlichen oder technischen Kontexten teilweise andere Bezeichnungen etabliert sind.  Der `gemeinde_code` heisst beispielsweise in anderen Systemen:
+Es ist zu beachten, dass in anderen fachlichen oder technischen Kontexten teilweise andere Bezeichnungen etabliert sind. Der `gemeinde_code` heisst beispielsweise in anderen Systemen:
 
 - `BFSNr`
 - `MunicipalityID`
 - `GDE_Nummer`
 - ...
 
-### Datenmodell
----
-<div align="center"><br> 
+
+## Datenmodell
+
+<div align="center"><br>
 <img src="images/Datenmodell_OGD_Gebietsstammdaten.jpg" alt="Datenflüsse Gebietsstammdaten" width="700">
-<br> </div>
+<br></div>
 
-### Detaillierter Variablenbeschrieb
----
-#### Tabelle Normdaten Gemeinden Kanton Zürich
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Typ</th>
-      <th>Beschreibung</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>gebietstyp_code</td><td>Zahl</td><td>Code des Gebietstyps Gemeinde (BFS-Level)</td></tr>
-    <tr><td>gemeinde_code</td><td>Zahl</td><td>Offizieller Code der Gemeinde (BFS-Nummer)</td></tr>
-    <tr><td>gemeinde_name</td><td>Text</td><td>Offizieller Name der Gemeinde (BFS-Name)</td></tr>
-  </tbody>
-</table>
+## Detaillierter Variablenbeschrieb
 
+### Tabelle Normdaten Gemeinden Kanton Zürich
+
+| Name | Typ | Beschreibung |
+|---|---|---|
+| gebietstyp_code | Zahl | Code des Gebietstyps Gemeinde (BFS-Level) |
+| gemeinde_code | Zahl | Offizieller Code der Gemeinde (BFS-Nummer) |
+| gemeinde_name | Text | Offizieller Name der Gemeinde (BFS-Name) |
 
 [zu den Daten](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich/distributions/6503)
 
----
-#### Tabelle Normdaten Bezirke Kanton Zürich
+### Tabelle Normdaten Bezirke Kanton Zürich
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Typ</th>
-      <th>Beschreibung</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>gebietstyp_code</td><td>Zahl</td><td>Code des Gebietstyps Bezirk (BFS-Level)</td></tr>
-    <tr><td>bezirk_code</td><td>Zahl</td><td>Offizieller Code des Bezirks (BFS-Nummer)</td></tr>
-    <tr><td>bezirk_name</td><td>Text</td><td>Offizieller Name des Bezirks (BFS-Name)</td></tr>
-  </tbody>
-</table>
+| Name | Typ | Beschreibung |
+|---|---|---|
+| gebietstyp_code | Zahl | Code des Gebietstyps Bezirk (BFS-Level) |
+| bezirk_code | Zahl | Offizieller Code des Bezirks (BFS-Nummer) |
+| bezirk_name | Text | Offizieller Name des Bezirks (BFS-Name) |
 
 [zu den Daten](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich/distributions/6505)
 
----
-#### Tabelle Normdaten Raumplanungsregionen Kanton Zürich
+### Tabelle Normdaten Raumplanungsregionen Kanton Zürich
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Typ</th>
-      <th>Beschreibung</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>gebietstyp_code</td><td>Zahl</td><td>Code des Gebietstyps Raumplanungsregion (Verwendung im STAT)</td></tr>
-    <tr><td>raumplanungsregion_code</td><td>Zahl</td><td>Offizieller Code der Raumplanungsregion (Vergabe durch ARE/Kantone)</td></tr>
-    <tr><td>raumplanungsregion_name</td><td>Text</td><td>Offizieller Name der Raumplanungsregion (Vergabe durch ARE/Kantone)</td></tr>
-  </tbody>
-</table>
+| Name | Typ | Beschreibung |
+|---|---|---|
+| gebietstyp_code | Zahl | Code des Gebietstyps Raumplanungsregion (Verwendung im STAT) |
+| raumplanungsregion_code | Zahl | Offizieller Code der Raumplanungsregion (Vergabe durch ARE/Kantone) |
+| raumplanungsregion_name | Text | Offizieller Name der Raumplanungsregion (Vergabe durch ARE/Kantone) |
 
 [zu den Daten](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich/distributions/6506)
 
----
-#### Tabelle Gemeindezuweisungen (zu Bezirk und Raumplanungsregion) Kanton Zürich
+### Tabelle Gemeindezuweisungen (zu Bezirk und Raumplanungsregion) Kanton Zürich
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Typ</th>
-      <th>Beschreibung</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>gemeinde_code</td><td>Zahl</td><td>Offizieller Code der Gemeinde (BFS-Nummer)</td></tr>
-    <tr><td>gemeinde_name</td><td>Text</td><td>Offizieller Name der Gemeinde (BFS-Name)</td></tr>
-    <tr><td>bezirk_code</td><td>Zahl</td><td>Offizieller Code des Bezirks (BFS-Nummer)</td></tr>
-    <tr><td>bezirk_name</td><td>Text</td><td>Offizieller Name des Bezirks (BFS-Name)</td></tr>
-    <tr><td>raumplanungsregion_code</td><td>Zahl</td><td>Code der Raumplanungsregion (Vergabe durch ARE/Kantone)</td></tr>
-    <tr><td>raumplanungsregion_name</td><td>Text</td><td>Offizieller Name der Raumplanungsregion (Vergabe durch ARE/Kantone)</td></tr>
-  </tbody>
-</table>
+| Name | Typ | Beschreibung |
+|---|---|---|
+| gemeinde_code | Zahl | Offizieller Code der Gemeinde (BFS-Nummer) |
+| gemeinde_name | Text | Offizieller Name der Gemeinde (BFS-Name) |
+| bezirk_code | Zahl | Offizieller Code des Bezirks (BFS-Nummer) |
+| bezirk_name | Text | Offizieller Name des Bezirks (BFS-Name) |
+| raumplanungsregion_code | Zahl | Code der Raumplanungsregion (Vergabe durch ARE/Kantone) |
+| raumplanungsregion_name | Text | Offizieller Name der Raumplanungsregion (Vergabe durch ARE/Kantone) |
 
 [zu den Daten](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich/distributions/6563)
 
----
-#### Tabelle Gemeindemutationen Kanton Zürich
+### Tabelle Gemeindemutationen Kanton Zürich
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Typ</th>
-      <th>Beschreibung</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>mutationstyp</td><td>Text</td><td>Mutationstyp (Namensänderung oder Fusion)</td></tr>
-    <tr><td>gemeinde_code_alt</td><td>Zahl</td><td>Offizieller Code der Gemeinde (BFS-Nummer) vor der Mutation</td></tr>
-    <tr><td>gemeinde_name_alt</td><td>Text</td><td>Offizieller Name der Gemeinde (BFS-Name) vor der Mutation</td></tr>
-    <tr><td>gemeinde_code_neu</td><td>Zahl</td><td>Offizieller Code der Gemeinde (BFS-Nummer) nach der Mutation</td></tr>
-    <tr><td>gemeinde_name_neu</td><td>Text</td><td>Offizieller Name der Gemeinde (BFS-Name) nach der Mutation</td></tr>
-    <tr><td>mutationsdatum</td><td>Datum</td><td>Datum der Mutation</td></tr>
-  </tbody>
-</table>
+| Name | Typ | Beschreibung |
+|---|---|---|
+| mutationstyp | Text | Mutationstyp (Namensänderung oder Fusion) |
+| gemeinde_code_alt | Zahl | Offizieller Code der Gemeinde (BFS-Nummer) vor der Mutation |
+| gemeinde_name_alt | Text | Offizieller Name der Gemeinde (BFS-Name) vor der Mutation |
+| gemeinde_code_neu | Zahl | Offizieller Code der Gemeinde (BFS-Nummer) nach der Mutation |
+| gemeinde_name_neu | Text | Offizieller Name der Gemeinde (BFS-Name) nach der Mutation |
+| mutationsdatum | Datum | Datum der Mutation |
 
 [zu den Daten](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich/distributions/6504)
-
----
