@@ -12,7 +12,7 @@ Er gleicht Freitext-Einträge automatisch mit offiziellen Zürcher Gebietsnamen 
 
 ## Ein konkretes Anwendungsbeispiel
 
-**Ausgangslage:** Ihr habt eine Liste mit über 100 Zürcher Gemeinden aus einem alten Fachsystem – Spaltenname z. B. „Gemeinde", Werte wie „Bülach", „Illnau-Effretikon", vereinzelt auch veraltete oder leicht falsch geschriebene Namen. Ihr wollt diese Liste mit weiteren Daten (z. B. Steuerdaten, Schülerzahlen, GIS-Layer) über den Gemeindecode verknüpfen.
+**Ausgangslage:** Eine Liste mit über 100 Zürcher Gemeinden aus einem alten Fachsystem – Spaltenname z. B. „Gemeinde", Werte wie „Bülach", „Illnau-Effretikon", vereinzelt auch veraltete oder leicht falsch geschriebene Namen. Nun sollen die Gemeindenamen mit dem offiziellen Gemeindenamen des BFS abgeglichen und mit weiteren Daten (z. B. Steuerdaten, Schülerzahlen, GIS-Layer) über den Gemeindecode verknüpft werden.
 
 **So geht's in OpenRefine:**
 
