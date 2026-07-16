@@ -4,7 +4,7 @@ Der neue **Reconciliation-Service für Gebietsstammdaten** kann man direkt in Op
 
 ## Was macht der Reconcile-Service?
 
-Er gleicht eure Freitext-Einträge automatisch mit offiziellen Zürcher Gebietsnamen ab. Im Moment sind verfügbar:
+Er gleicht Freitext-Einträge automatisch mit offiziellen Zürcher Gebietsnamen ab. Im Moment sind verfügbar:
 
 - **Gemeinden**
 - **Bezirke**
