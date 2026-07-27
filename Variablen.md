@@ -111,7 +111,7 @@ Es ist zu beachten, dass in anderen fachlichen oder technischen Kontexten teilwe
 | Name | Typ | Beschreibung |
 |---|---|---|
 | mutationsdatum | Datum | Datum der Mutation |
-| mutationstyp | Text | Mutationstyp (Namensänderung oder Fusion) |
+| mutationstyp | Text | Mutationstyp (Namensänderung, Fusion oder Gebietszuweisungsänderung) |
 | gemeinde_code_alt | Zahl | Offizieller Code der Gemeinde (BFS-Nummer) vor der Mutation |
 | gemeinde_name_alt | Text | Offizieller Name der Gemeinde (BFS-Name) vor der Mutation |
 | gemeinde_code_neu | Zahl | Offizieller Code der Gemeinde (BFS-Nummer) nach der Mutation |
@@ -123,5 +123,7 @@ Es ist zu beachten, dass in anderen fachlichen oder technischen Kontexten teilwe
 | eltern_gebiet_code_neu | Zahl | Nur bei Mutationstyp *Gebietszuweisungsänderung*: Offizieller Code des Elterngebietes nach der Zuweisungsänderung |
 | eltern_gebiet_name_neu | Text | Nur bei Mutationstyp *Gebietszuweisungsänderung*: Offizieller Name des Elterngebietes nach der Zuweisungsänderung |
 
+> 💡 **Hinweis zu den Gebietszuweisungsänderungen:**
+> Da es seit dem 1.1.1990 keine Bezirkswechsel von Gemeinden und nur zwei Änderungen bei der Zuweisung zur Raumplanungsregion gab, sind die Datenfelder der Elterngebiete selten belegt.
 
 [zu den Daten](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich/distributions/6504)
