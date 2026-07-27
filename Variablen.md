@@ -110,11 +110,18 @@ Es ist zu beachten, dass in anderen fachlichen oder technischen Kontexten teilwe
 
 | Name | Typ | Beschreibung |
 |---|---|---|
+| mutationsdatum | Datum | Datum der Mutation |
 | mutationstyp | Text | Mutationstyp (Namensänderung oder Fusion) |
 | gemeinde_code_alt | Zahl | Offizieller Code der Gemeinde (BFS-Nummer) vor der Mutation |
 | gemeinde_name_alt | Text | Offizieller Name der Gemeinde (BFS-Name) vor der Mutation |
 | gemeinde_code_neu | Zahl | Offizieller Code der Gemeinde (BFS-Nummer) nach der Mutation |
 | gemeinde_name_neu | Text | Offizieller Name der Gemeinde (BFS-Name) nach der Mutation |
-| mutationsdatum | Datum | Datum der Mutation |
+| eltern_gebietstyp_code| Zahl | Nur bei Mutationstyp *Gebietszuweisungsänderung*: Gebietstyp_code des Elterngebietes |
+| eltern_gebietstyp_name | Text | Nur bei Mutationstyp *Gebietszuweisungsänderung*: Gebietstyp_name des Elterngebietes |
+| eltern_gebiet_code_alt | Zahl | Nur bei Mutationstyp *Gebietszuweisungsänderung*: Offizieller Code des Elterngebietes vor der Zuweisungsänderung |
+| eltern_gebiet_name_alt | Text | Nur bei Mutationstyp *Gebietszuweisungsänderung*: Offizieller Name des Elterngebietes vor der Zuweisungsänderung |
+| eltern_gebiet_code_neu | Zahl | Nur bei Mutationstyp *Gebietszuweisungsänderung*: Offizieller Code des Elterngebietes nach der Zuweisungsänderung |
+| eltern_gebiet_name_neu | Text | Nur bei Mutationstyp *Gebietszuweisungsänderung*: Offizieller Name des Elterngebietes nach der Zuweisungsänderung |
+
 
 [zu den Daten](https://www.zh.ch/de/politik-staat/statistik-daten/datenkatalog.html#/datasets/3082@statistisches-amt-kanton-zuerich/distributions/6504)
