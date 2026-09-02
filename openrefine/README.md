@@ -1,8 +1,25 @@
 # Reconcile-Service in OpenRefine
 
-Der neue **Reconciliation-Service für Gebietsstammdaten** kann man direkt in OpenRefine einbinden. OpenRefine ist ein OpenSource-Tool und Kantosnapplikation, das man im AFI-Serviceportal bestellen kann. 
+Der neue **Reconciliation-Service für Gebietsstammdaten** kann man direkt in OpenRefine einbinden. OpenRefine ist ein **OpenSource-Tool und Kantonsapplikation**, das man im AFI-Serviceportal bestellen kann. 
 
-## Was macht der Reconcile-Service?
+## Zu OpenRefine
+
+Kennst du das? Du versuchst, inkonsistente Daten in Excel mit komplexen Formeln oder mühsamem Suchen-und-Ersetzen zu bereinigen, verlierst aber schnell den Überblick über die Änderungen, die Datei stürzt immer wieder ab und du versuchst über Dateikopien keine Daten zu verlieren. 
+
+👉 Hier kommt OpenRefine ins Spiel. Man kann **OpenRefine als eine Art *Excel auf Steroiden* für die Datenaufbereitung** betrachten. 
+
+### Warum OpenRefine statt Excel?
+**Reproduzierbarkeit:** Jeder Schritt, den du ausführst, wird in einer Historie gespeichert. Du kannst jederzeit sehen, was du verändert hast und Schritte rückgängig machen.
+
+**Intelligente Bereinigung mit Clustering:** Dank mächtiger Algorithmen (Clustering) findet OpenRefine Schreibfehler oder Variationen (z. B. «Zürich», «Zuerich», «Zürich »), die du dann gezielt bereinigen kannst.
+
+**Sicherheit:** OpenRefine läuft lokal, du kannst also auch sensible Daten damit bearbeiten. Du kannst deine Daten aus verschiedenen Quelldateien wie Excel, csv, XML importieren und wiederum nach der Bearbeitung in verschiedenen Formaten wieder exportieren. 
+
+Du findest viele weitere Gründe für OpenRefine im [User Manual](https://openrefine.org/docs) Es gibt auch zahlreiche Online-Tutorials. Ein Beispiel wurde vom Landesarchiv Baden-Württemberg erarbeitet:
+
+👉 [OpenRefine Workshops FDMLab](https://fdmlab.landesarchiv-bw.de/workshops/)
+
+## Was macht der Gebietsstammdaten Reconcile-Service?
 
 Er gleicht Freitext-Einträge automatisch mit offiziellen Zürcher Gebietsnamen ab. Im Moment sind verfügbar:
 
