@@ -34,8 +34,16 @@ Er gleicht Freitext-Einträge automatisch mit offiziellen Zürcher Gebietsnamen 
 **So geht's in OpenRefine:**
 
 1. **Daten importieren:** CSV/Excel in OpenRefine laden.
+
+    🎥 Demo-Video: [1 Daten importieren](https://github.com/statistikZH/gebietsstammdaten_zh/issues/9#issue-5323001049)
+   
 2. **Reconcile starten:** Auf die Spalte mit den Gemeindenamen klicken → *Reconcile* → *Start reconciling…*
 3. **Service hinzufügen:** *Add Standard Service…* und folgende URL eintragen: `https://gebietsstammdaten.statistik.zh.ch/api/reconcile`
 4. **Typ wählen:** „Gemeinde" als Entitätstyp auswählen (alternativ „Bezirk" oder „Raumplanungsregion").
 5. **Abgleichen lassen:** OpenRefine schlägt für jede Zeile die passende amtliche Gemeinde vor – bei eindeutigen Treffern automatisch, bei Unsicherheiten mit Score und Vorschau zur manuellen Kontrolle.
+
+    🎥 Demo-Video:  [2-5 Reconcilen](https://github.com/statistikZH/gebietsstammdaten_zh/issues/10#issue-5323181467)
+
 6. **Anreichern:** Über *Add columns from reconciled values* lassen sich zusätzliche Attribute wie der Gemeindecode (Bfs-Nr.), den zughörigen Bezirk oder auch ein direkter Link in GIS-ZH.
+
+    🎥 Demo-Video:  [6 Anreichern](https://github.com/statistikZH/gebietsstammdaten_zh/issues/11#issue-5323198654)
