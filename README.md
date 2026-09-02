@@ -31,12 +31,12 @@ Quelle der Daten bilden das [Amtliche Gemeindeverzeichnis des Bundesamt für Sta
 - **Reconcile Service für OpenRefine**  
   Integriert in der API ist auch ein Reconcile-Service für [OpenRefine](https://openrefine.org/). Damit wird die komfortable Zuordnung und Bereinigung der eigenen Daten ohne Programmierkenntnisse möglich. OpenRefine ist eine OpenSource-Applikation, welche Mitarbeitende des Kantons Zürich über das Service-Portal beziehen können.
 
-  *--> [Link](openrefine)*
+  *--> [Link zur Anleitung](openrefine)*
   
 - **Excel Add-In**  
   Mit dem Excel Add-In können auf Basis der REST-API Gemeindedaten validiert und angereichert werden. 
 
-  *--> [Link](excel_add_in)*
+  *--> [Link zur Anleitung](excel_add_in)*
   
 - **Code-Vorlagen**  
   Code-Vorlagen praxisnaher Anwendungsbeisiele, die zeigen, wie die Gebietsstammdaten und die API eingesetzt werden können.
