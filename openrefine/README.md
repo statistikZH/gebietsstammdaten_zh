@@ -15,7 +15,7 @@ Kennst du das? Du versuchst, inkonsistente Daten in Excel mit komplexen Formeln 
 
 **Sicherheit:** OpenRefine läuft lokal, du kannst also auch sensible Daten damit bearbeiten. Du kannst deine Daten aus verschiedenen Quelldateien wie Excel, csv, XML importieren und wiederum nach der Bearbeitung in verschiedenen Formaten wieder exportieren. 
 
-Du findest viele weitere Gründe für OpenRefine im [User Manual](https://openrefine.org/docs). Es gibt auch zahlreiche Online-Tutorials. Ein Beispiel wurde vom Landesarchiv Baden-Württemberg erarbeitet:
+Du findest viele weitere Gründe für OpenRefine im [User Manual.](https://openrefine.org/docs). Es gibt auch zahlreiche Online-Tutorials. Ein Beispiel wurde vom Landesarchiv Baden-Württemberg erarbeitet:
 
 👉 [OpenRefine Workshops FDMLab](https://fdmlab.landesarchiv-bw.de/workshops/)
 
