@@ -13,13 +13,15 @@ Kennst du das? Du versuchst, inkonsistente Daten in Excel mit komplexen Formeln 
 
 **Intelligente Bereinigung mit Clustering:** Dank mächtiger Algorithmen (Clustering) findet OpenRefine Schreibfehler oder Variationen (z. B. «Zürich», «Zuerich», «Zürich »), die du dann gezielt bereinigen kannst.
 
-**Sicherheit:** OpenRefine läuft lokal, du kannst also auch sensible Daten damit bearbeiten. Du kannst deine Daten aus verschiedenen Quelldateien wie Excel, csv, XML importieren und wiederum nach der Bearbeitung in verschiedenen Formaten wieder exportieren. 
+**Datenvalidierung und -anreicherung über den Reconcile-Service:** Wenn eine entsprechende Schnittstelle zur Verfügung steht (wie neu für die Gebietsstammdaten), kannst du mit OpenRefine deine Daten einfach validieren und anreichern. 
 
-Du findest viele weitere Gründe für OpenRefine im [User Manual.](https://openrefine.org/docs) Es gibt auch zahlreiche Online-Tutorials. Ein Beispiel wurde vom Landesarchiv Baden-Württemberg erarbeitet:
+**Sicherheit:** OpenRefine läuft lokal, du kannst also auch sensible Daten damit bearbeiten. Du kannst deine Daten aus verschiedenen Quelldateien wie Excel, csv, XML importieren und wiederum nach der Bearbeitung in verschiedenen Formaten exportieren. 
+
+Du findest viele weitere Gründe für OpenRefine im [User Manual.](https://openrefine.org/docs) Du findest auch einige Online-Tutorials. Ein Beispiel wurde vom Landesarchiv Baden-Württemberg erarbeitet:
 
 👉 [OpenRefine Workshops FDMLab](https://fdmlab.landesarchiv-bw.de/workshops/)
 
-## Was macht der Gebietsstammdaten Reconcile-Service?
+## Was macht der Gebietsstammdaten Reconcile-Service für OpenRefine?
 
 Er gleicht Freitext-Einträge automatisch mit offiziellen Zürcher Gebietsnamen ab. Im Moment sind verfügbar:
 
