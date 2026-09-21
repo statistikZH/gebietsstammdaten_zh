@@ -1,6 +1,6 @@
 # Reconcile-Service in OpenRefine
 
-Mit dem Reconcile-Service für OpenRefine ist die komfortable Zuordnung und Bereinigung der eigenen Daten ohne Programmierkenntnisse möglich. [OpenRefine](https://openrefine.org/) ist eine OpenSource-Applikation. Mitarbeitende des Kantons Zürich können OpenRefine über das AFI Service-Portal beziehen.
+Mit dem Reconcile-Service für OpenRefine ist die komfortable Zuordnung und Bereinigung der eigenen Daten ohne Programmierkenntnisse möglich. [OpenRefine](https://openrefine.org/) ist eine OpenSource-Applikation. Mitarbeitende des Kantons Zürich können OpenRefine über das AFI-Serviceportal beziehen.
 
 ## Zu OpenRefine
 
