@@ -29,7 +29,7 @@ Quelle der Daten bilden das [Amtliche Gemeindeverzeichnis des Bundesamt für Sta
   *--> [Link](https://github.com/statistikZH/zhGebiete)*
 
 - **Reconcile Service für OpenRefine**  
-  Integriert in der API ist auch ein Reconcile-Service für [OpenRefine](https://openrefine.org/). Damit wird die komfortable Zuordnung und Bereinigung der eigenen Daten ohne Programmierkenntnisse möglich. OpenRefine ist eine OpenSource-Applikation, welche Mitarbeitende des Kantons Zürich über das Service-Portal beziehen können.
+  Integriert in der API ist auch ein Reconcile-Service für [OpenRefine](https://openrefine.org/). Damit wird die komfortable Zuordnung und Bereinigung der eigenen Daten ohne Programmierkenntnisse möglich. OpenRefine ist eine OpenSource-Applikation, welche Mitarbeitende des Kantons Zürich über das AFI-Serviceportal beziehen können.
 
   *--> [Link zur Anleitung](openrefine)*
   
