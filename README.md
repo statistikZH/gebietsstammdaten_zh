@@ -33,11 +33,6 @@ Quelle der Daten bilden das [Amtliche Gemeindeverzeichnis des Bundesamt für Sta
 
   *--> [Link zur Anleitung](openrefine)*
   
-- **Excel Add-In**  
-  Mit dem Excel Add-In können auf Basis der REST-API Gemeindedaten validiert und angereichert werden. 
-
-  *--> [Link zur Anleitung](excel_add_in)*
-  
 - **Code-Vorlagen**  
   Code-Vorlagen praxisnaher Anwendungsbeisiele, die zeigen, wie die Gebietsstammdaten und die API eingesetzt werden können.
 
