@@ -1,6 +1,6 @@
 # Reconcile-Service in OpenRefine
 
-Der neue **Reconciliation-Service für Gebietsstammdaten** kann man direkt in OpenRefine einbinden. OpenRefine ist ein **OpenSource-Tool und Kantonsapplikation**, das man im AFI-Serviceportal bestellen kann. 
+Mit dem Reconcile-Service für OpenRefine ist die komfortable Zuordnung und Bereinigung der eigenen Daten ohne Programmierkenntnisse möglich. [OpenRefine](https://openrefine.org/) ist eine OpenSource-Applikation. Mitarbeitende des Kantons Zürich können OpenRefine über das AFI Service-Portal beziehen.
 
 ## Zu OpenRefine
 
@@ -13,7 +13,7 @@ Kennst du das? Du versuchst, inkonsistente Daten in Excel mit komplexen Formeln 
 
 **Intelligente Bereinigung mit Clustering:** Dank mächtiger Algorithmen (Clustering) findet OpenRefine Schreibfehler oder Variationen (z. B. «Zürich», «Zuerich», «Zürich »), die du dann gezielt bereinigen kannst.
 
-**Datenvalidierung und -anreicherung über den Reconcile-Service:** Wenn eine entsprechende Schnittstelle zur Verfügung steht (wie neu für die Gebietsstammdaten), kannst du mit OpenRefine deine Daten einfach validieren und anreichern. 
+**Datenvalidierung und -anreicherung über den Reconcile-Service:** Wenn eine entsprechender Dienst zur Verfügung steht (wie neu für die Gebietsstammdaten), kannst du mit OpenRefine deine Daten einfach validieren und anreichern. 
 
 **Sicherheit:** OpenRefine läuft lokal, du kannst also auch sensible Daten damit bearbeiten. Du kannst deine Daten aus verschiedenen Quelldateien wie Excel, csv, XML importieren und wiederum nach der Bearbeitung in verschiedenen Formaten exportieren. 
 
@@ -46,6 +46,6 @@ Er gleicht Freitext-Einträge automatisch mit offiziellen Zürcher Gebietsnamen 
 
     🎥 Demo-Video:  [2-5 Reconcilen](https://github.com/statistikZH/gebietsstammdaten_zh/issues/10#issue-5323181467)
 
-6. **Anreichern:** Über *Add columns from reconciled values* lassen sich zusätzliche Attribute wie der Gemeindecode (Bfs-Nr.), den zughörigen Bezirk oder auch ein direkter Link in GIS-ZH.
+6. **Anreichern:** Über *Add columns from reconciled values* lassen sich zusätzliche Attribute wie der Gemeindecode (Bfs-Nr.), den zughörigen Bezirk oder auch ein direkter Link in GIS-ZH hinzufügen.
 
     🎥 Demo-Video:  [6 Anreichern](https://github.com/statistikZH/gebietsstammdaten_zh/issues/11#issue-5323198654)
