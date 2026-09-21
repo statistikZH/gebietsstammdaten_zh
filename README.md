@@ -51,7 +51,7 @@ Haben Sie Fragen oder Feedback? <br><br>
 [Schreiben Sie](mailto:dm@statistik.ji.zh.ch) ans [Team Data Management](https://www.zh.ch/de/direktion-der-justiz-und-des-innern/amt-fuer-statistik-und-daten/data-management.html) des Amts für Statistik und Daten
 oder melden Sie sich direkt bei: <br><br>
 Rebekka Plüss <br>
-rebekka.pluess@statistik.ji.zh.ch <br>
+rebekka.pluess@zh.ch <br>
 Telefonnummer +41 43 258 50 92<br>
 
 ---
