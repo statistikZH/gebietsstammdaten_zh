@@ -6,22 +6,27 @@ Python-Hilfsfunktionen für die **Gebietsstammdaten ZH API** und historische Gem
 
 ## Installation
 
-1. Virtuelle Umgebung vorbereiten:
+1. **uv >= 0.13.4** installieren bzw. aktualisieren und mit `uv --version` prüfen.
+   Falls pip zur Installation verwendet wird, muss es zuerst sicher auf
+   **pip >= 26.2.2** aktualisiert werden. Die
+   [Python-Sicherheitsmeldung zum eMudhra/emSign-Vorfall](https://discuss.python.org/t/information-for-python-users-regarding-emudhra-emsign-ca-certificate-security-incident/109576)
+   enthält dafür einen Download mit SHA256-Prüfsumme.
+
+2. Im Verzeichnis `code_vorlagen/python` die virtuelle Umgebung inklusive
+   der bereits deklarierten Jupyter-Abhängigkeiten synchronisieren:
 
 ```bash
-uv install
-```
-oder 
-
-```bash
-pip install uv
+uv sync --locked --inexact --python 3.14
 ```
 
-2. Entwicklungsabhängigkeiten inklusive Jupyter hinzufügen:
+Die gesperrten Abhängigkeiten unterstützen Python 3.15 noch nicht vollständig.
 
-```bash
-uv add --dev jupyter
-```
+Die Lockdatei enthält **certifi >= 2026.10.19**; eine uv-Constraint verhindert
+ältere Versionen bei erneuter Auflösung. Ein separat in der Umgebung installiertes
+pip muss ebenfalls mindestens Version 26.2.2 haben: Es enthält ein eigenes
+CA-Bundle und wird durch ein certifi-Update nicht repariert. Nach dem Update
+laufende Jupyter-Kernel neu starten. Die Hilfsfunktionen verwenden `urllib` und
+damit den Python-/System-Zertifikatsspeicher; auch dieser muss aktuell sein.
 
 ---
 
